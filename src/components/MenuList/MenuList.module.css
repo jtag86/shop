@@ -1,0 +1,12 @@
+.menuList {
+  position: absolute;
+  left: 295px;
+  top: 0px;
+  z-index: 1;
+}
+.active {
+  display: flex;
+}
+.inactive {
+  display: none;
+}

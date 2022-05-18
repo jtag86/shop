@@ -1,0 +1,16 @@
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 161px;
+  text-align: center;
+}
+
+.wrapper {
+  width: 66px;
+  height: 66px;
+}
+
+.image {
+  max-width: 100%;
+}
