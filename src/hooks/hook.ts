@@ -1,4 +1,6 @@
 import  { useEffect, RefObject } from 'react'
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
+import { RootState } from '../redux/reducers/rootReducer';
 
 export const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
   ref: RefObject<T>,
@@ -23,3 +25,5 @@ export const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
     };
   }, [ref, handler]); // Reload only if ref or handler changes
 };
+
+export const useAppSelector:TypedUseSelectorHook<RootState> = useSelector

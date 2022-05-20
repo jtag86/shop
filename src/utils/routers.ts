@@ -1,6 +1,6 @@
-import { FILTER, MAIN } from "./consts";
-import Main from '../components/Main/Main'
-import Filter from '../components/Filter/Filter'
+import { PRODUCTS, MAIN } from "./consts";
+import Main from '../components/pages/main/Main'
+import Goods from '../components/pages/catalog/Catalog'
 
 interface Props {
   path: string,
@@ -14,8 +14,8 @@ export const routers: Array<Props> = [
     Element: Main
   },
   {
-    path: FILTER,
-    Element: Filter
+    path: PRODUCTS,
+    Element: Goods
   },
   {
     path: '*',

@@ -1,3 +1,3 @@
 export const MAIN = '/main'
-export const FILTER = '/filter'
+export const PRODUCTS = '/products'
 export const OFFER = '/offer'
