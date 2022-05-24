@@ -80,6 +80,14 @@ const Buttons: React.FC<Props> = ({visible}) => {
             <Button onMouseOver={() => handleMouseOver(complect)}>Ноутбуки и компьютеры</Button>
             <Button onMouseOver={() => handleMouseOver(notebooks)}>Компьютерная периферия</Button>
             <Button onMouseOver={() => handleMouseOver(peripheral)}>Оргтехника и расходные материалы</Button>
+            <Button onMouseOver={() => handleMouseOver(smartphones_gadgets)}>Комплектующие</Button>
+            <Button onMouseOver={() => handleMouseOver(complect)}>Ноутбуки и компьютеры</Button>
+            <Button onMouseOver={() => handleMouseOver(notebooks)}>Компьютерная периферия</Button>
+            <Button onMouseOver={() => handleMouseOver(peripheral)}>Оргтехника и расходные материалы</Button>
+            <Button onMouseOver={() => handleMouseOver(smartphones_gadgets)}>Комплектующие</Button>
+            <Button onMouseOver={() => handleMouseOver(complect)}>Ноутбуки и компьютеры</Button>
+            <Button onMouseOver={() => handleMouseOver(notebooks)}>Компьютерная периферия</Button>
+            <Button onMouseOver={() => handleMouseOver(peripheral)}>Оргтехника и расходные материалы</Button>
         </ButtonGroup>
         <Modal show={data.element} text={data.text} onMouseLeave={() => handleMouseLeave()} onClose={() => handleOnClickOutSide()}/>
       </ThemeProvider>

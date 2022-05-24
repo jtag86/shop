@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Menu from '../common/Menu/Menu'
 import Navigation from '../common/Navigation'
-import Benefits from './Benefits'
+import Benefits from './Benefits/Benefits'
 import { Box } from '@mui/material'
 import Header from '../common/Header'
 import Footer from '../common/Footer'
+import CarouselMain from '../../UI/CarouselMain/CarouselMain'
+import CarouselEl from '../../UI/Carousel/Carousel'
+import { Dispatch } from 'redux'
+import { getProducts } from '../../../redux/actionCreators/getProducts'
+import { useDispatch } from 'react-redux'
+import News from './News'
 
 
 const Main = () => {
+  const dispatch: Dispatch<any> = useDispatch()
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [])
+
+
   return (
     <Box sx={{
       display: 'grid',
@@ -26,14 +38,15 @@ const Main = () => {
       </Box>
       <Box sx={{gridArea: 'main'}}>
         <Navigation />
+        <CarouselMain />
         <Benefits />
       </Box>
       <Box sx={{gridArea: 'content'}}>
-        {/* <Carousel title={"Вам может понравится"} scrollNum={5} />
-        <Carousel title={"Наши покупатели выбирают"} scrollNum={3} />
-        <Carousel title={"Новинки"} scrollNum={4} />
-        <Carousel title={"Товар недели"} scrollNum={1} />
-        <Carousel title={"Кэшбэк"} scrollNum={1}/> */}
+        <CarouselEl title="Вам может понравиться" scrollNum={2}/>
+        <CarouselEl title="Наши покупатели выбирают" scrollNum={1}/>
+        <CarouselEl title="Новинки" scrollNum={3}/>
+        <CarouselEl title="Кешбэк" scrollNum={3}/>
+        <News />
       </Box>
       <Box sx={{gridArea: 'footer'}}>
         <Footer />

@@ -6,13 +6,13 @@ export interface IProducts {
 
 interface IState {
   loading: boolean,
-  products?: Array<IProducts>,
-  error?: string | null,
-  size?: number
+  products: Array<IProducts>,
+  error: string | null,
+  size: number
 }
 
 const initializeState: IState = {
-  loading: false,
+  loading: true,
   products: [],
   error: null,
   size: 0
@@ -22,17 +22,23 @@ export const productsReducer = (state: IState = initializeState, action: Action)
   switch(action.type) {
     case ActionTypes.GET_PRODUCTS_PENDING:
       return {
-        loading: true
+        loading: true,
+        products: [],
+        size: 0,
+        error: ""
       }
     case ActionTypes.GET_PRODUCTS_SUCCESS:
       return {
         loading: false,
         products: action.payload,
-        size: action.size
+        size: action.size,
+        error: ""
       }
     case ActionTypes.GET_PRODUCTS_FAIL:
       return {
-        loading: false,
+        loading: true,
+        products: [],
+        size: 0,
         error: action.payload
       }
     default:

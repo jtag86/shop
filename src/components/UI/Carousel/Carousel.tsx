@@ -19,21 +19,15 @@ const CarouselEl: React.FC<Props> = ({title, scrollNum}) => {
     return Math.floor(Math.random() * length)
   }
 
-  // console.log(products[rand(products.length)])
-
-  return loading
-      ? 
-      (
-        <Typography>Loading ...</Typography>
-      ) : (
-        <Box mx='auto' m={2} mt={4}>
+  return !loading 
+      ? <Box mx='auto' m={2} mt={4}>
           <Box>
             <Typography variant="h4" sx={{color: "#337ab7"}}  m={1} >
               {title}
             </Typography>
             <hr/>
           </Box>
-    
+  
           <Carousel
             cellSpacing={0}
             autoplay={true}
@@ -45,7 +39,7 @@ const CarouselEl: React.FC<Props> = ({title, scrollNum}) => {
               <Box
                 sx={{
                   position: 'absolute',
-                  top: "-200px",
+                  top: "-208px",
                   left: "1200px"
                 }}
               >
@@ -58,7 +52,7 @@ const CarouselEl: React.FC<Props> = ({title, scrollNum}) => {
               <Box 
                 sx={{
                   position: 'absolute',
-                  top: "-200px",
+                  top: "-208px",
                   left: "-100px"
                 }}
               >
@@ -76,9 +70,11 @@ const CarouselEl: React.FC<Props> = ({title, scrollNum}) => {
             <CarouselCard product={products![rand(products!.length)]}/>
             <CarouselCard product={products![rand(products!.length)]}/>
             <CarouselCard product={products![rand(products!.length)]}/>
+            <CarouselCard product={products![rand(products!.length)]}/>
+            <CarouselCard product={products![rand(products!.length)]}/>
           </Carousel>
-        </Box>
-      )
+        </Box>       
+      : null
 }
 
 export default CarouselEl
