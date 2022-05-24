@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore"
 import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCfu_TupHdqmmmp6q4lvOkbF-2Z7LplC7Y",
-  authDomain: "shop-1d000.firebaseapp.com",
-  projectId: "shop-1d000",
-  storageBucket: "shop-1d000.appspot.com",
-  messagingSenderId: "91602576464",
-  appId: "1:91602576464:web:915f08d22d8144f9ae1d55",
-  measurementId: "G-67LCGTP86D"
+  apiKey: "AIzaSyBr2BKRCxgyWJM0IzndWUmlH6K19ShvZRU",
+  authDomain: "groovy-cider-155004.firebaseapp.com",
+  projectId: "groovy-cider-155004",
+  storageBucket: "groovy-cider-155004.appspot.com",
+  messagingSenderId: "227011715794",
+  appId: "1:227011715794:web:47e79f06fb6ec2d54b430b",
+  measurementId: "G-QS6Y45D13Y"
 };
 
 export const app = initializeApp(firebaseConfig);

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 import { v4 as uuidv4} from 'uuid'
 import { Typography } from '@mui/material'
-import { useOnClickOutside } from '../../../hooks/hook'
+import { useOnClickOutside } from '../../../../hooks/hook'
 
 interface IMenuList {
   title: boolean,
@@ -17,7 +17,7 @@ interface Props {
   onClose: () => void
 }
 
-const MenuList: React.FC<Props> = ({show, text, onMouseLeave, onClose}) => {
+const Modal: React.FC<Props> = ({show, text, onMouseLeave, onClose}) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useOnClickOutside(ref, onClose)
@@ -56,4 +56,4 @@ const MenuList: React.FC<Props> = ({show, text, onMouseLeave, onClose}) => {
   )
 }
 
-export default MenuList
+export default Modal

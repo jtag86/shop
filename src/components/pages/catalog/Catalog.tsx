@@ -1,19 +1,26 @@
-import React, { useState } from 'react'
-import GroupButtons from '../../UI/Menu/GroupButtons'
-import MenuButton from '../../UI/Menu/MenuButton'
+import React, { useState, useEffect } from 'react'
+import Menu from '../common/Menu/Menu'
 import { Box } from '@mui/material'
 import Navigation from '../common/Navigation'
 import Filter from './Filter'
-import Products from './Products'
+import ProductList from './ProductList'
+import Header from '../common/Header'
+import { Dispatch } from 'redux'
+import { getProducts } from '../../../redux/actionCreators/getProducts'
+import { useDispatch } from 'react-redux'
 
-const Goods = () => {
-  const [visible, setVisible] = useState(false)
-  const toggleClick = () => {
-    setVisible(!visible)
-  }
+
+
+const Catalog = () => {
+  const dispatch: Dispatch<any> = useDispatch()
+
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [])
 
   return (
     <Box>
+      <Header />
       <Box
         sx={{
           display: 'flex',
@@ -21,10 +28,7 @@ const Goods = () => {
         }}
       >
         <Box flexGrow={0} m={1}>
-          <MenuButton toggleClick={toggleClick} />
-          <Box sx={{position: "absolute", zIndex: '2'}}>
-            <GroupButtons visible={visible} />
-          </Box>
+          <Menu alwaysVisible={false} />
         </Box>
         <Box flexGrow={2}>
           <Navigation />
@@ -41,7 +45,7 @@ const Goods = () => {
           <Filter />
         </Box>
         <Box flexGrow={2}>
-          <Products />
+          <ProductList />
         </Box>
       </Box>
 
@@ -52,4 +56,4 @@ const Goods = () => {
   )
 }
 
-export default Goods
+export default Catalog

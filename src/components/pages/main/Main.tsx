@@ -1,11 +1,10 @@
 import React from 'react'
-import GroupButtons from '../../UI/Menu/GroupButtons'
-import MenuButton from '../../UI/Menu/MenuButton'
+import Menu from '../common/Menu/Menu'
 import Navigation from '../common/Navigation'
 import Benefits from './Benefits'
 import Carousel from '../../UI/Carousel/Carousel'
 import { Box } from '@mui/material'
-import Header from './Header'
+import Header from '../common/Header'
 
 const Main = () => {
   return (
@@ -21,9 +20,8 @@ const Main = () => {
       <Box sx={{gridArea: 'header'}}>
         <Header />
       </Box>
-      <Box sx={{gridArea: 'sidebar'}}>
-        <MenuButton toggleClick={() => {}} />
-        <GroupButtons visible={true}/>
+      <Box sx={{gridArea: 'sidebar', height: '500px'}}>
+        <Menu alwaysVisible={true}/>
       </Box>
       <Box sx={{gridArea: 'main'}}>
         <Navigation />

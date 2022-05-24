@@ -1,22 +1,23 @@
-import { IGoods } from "../reducers/goodsReducer"
+import { IProducts } from "../reducers/productsReducer"
 
 export enum ActionTypes {
-  GET_GOODS_PENDING = 'GET_GOODS_PENDING',
-  GET_GOODS_SUCCESS = 'GET_GOODS_SUCCESS',
-  GET_GOODS_FAIL = 'GET_GOODS_FAIL'
+  GET_PRODUCTS_PENDING = 'GET_PRODUCTS_PENDING',
+  GET_PRODUCTS_SUCCESS = 'GET_PRODUCTS_SUCCESS',
+  GET_PRODUCTS_FAIL = 'GET_PRODUCTS_FAIL'
 }
 
 interface actionPending {
-  type: ActionTypes.GET_GOODS_PENDING
+  type: ActionTypes.GET_PRODUCTS_PENDING
 }
 
 interface actionSuccess {
-  type: ActionTypes.GET_GOODS_SUCCESS,
-  payload: Array<IGoods>
+  type: ActionTypes.GET_PRODUCTS_SUCCESS,
+  payload: Array<IProducts>,
+  size: number
 }
 
 interface actionFail {
-  type: ActionTypes.GET_GOODS_FAIL,
+  type: ActionTypes.GET_PRODUCTS_FAIL,
   payload: string
 }
 
