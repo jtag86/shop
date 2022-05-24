@@ -1,45 +1,84 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Carousel from 'nuka-carousel'
 import CarouselCard from './CarouselCard'
-import videocard from '../../../assets/img/videocard.jpg'
-import { Typography, Box } from '@mui/material'
+import { Typography, Box, Button } from '@mui/material'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import { useAppSelector } from '../../../hooks/hook'
 
 interface Props {
   title: string,
-  scrollNum: number
+  scrollNum: number,
 }
 
 const CarouselEl: React.FC<Props> = ({title, scrollNum}) => {
 
-  return (
-    <div style={{ width: "100%", margin: "0 auto" }}>
-      <Box>
-        <Typography variant="h5" sx={{color: "#444"}}  m={5} >
-          {title}
-        </Typography>
-      </Box>
+  const { loading, products } = useAppSelector(state => state.products)
 
-      <Carousel
-        cellSpacing={0}
-        autoplay={true}
-        wrapAround={true}
-        slidesToShow={5}
-        slidesToScroll={scrollNum}
-      >
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-        <CarouselCard image={videocard} cost={180000} text={"Видеокарта Gigabyte RTX 3050 Eagle, 8 GB, GeForce RTX 3050"}/>
-      </Carousel>
-    </div>
+  const rand = (length: number) => {
+    return Math.floor(Math.random() * length)
+  }
 
-  )
+  // console.log(products[rand(products.length)])
+
+  return loading
+      ? 
+      (
+        <Typography>Loading ...</Typography>
+      ) : (
+        <Box mx='auto' m={2} mt={4}>
+          <Box>
+            <Typography variant="h4" sx={{color: "#337ab7"}}  m={1} >
+              {title}
+            </Typography>
+            <hr/>
+          </Box>
+    
+          <Carousel
+            cellSpacing={0}
+            autoplay={true}
+            wrapAround={true}
+            slidesToShow={5}
+            slidesToScroll={scrollNum}
+            withoutControls={false}
+            renderCenterLeftControls={({ previousSlide }) => (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: "-200px",
+                  left: "1200px"
+                }}
+              >
+                <Button>
+                  <ArrowBackIosIcon onClick={previousSlide} color="primary" fontSize='large'/>
+                </Button>
+              </Box>
+            )}
+            renderCenterRightControls={({ nextSlide }) => (
+              <Box 
+                sx={{
+                  position: 'absolute',
+                  top: "-200px",
+                  left: "-100px"
+                }}
+              >
+                <Button>
+                  <ArrowForwardIosIcon onClick={nextSlide} color="primary" fontSize='large'/>
+                </Button>
+              </Box>
+            )}
+          >
+            <CarouselCard product={products![rand(products!.length)]}/>
+            <CarouselCard product={products![rand(products!.length)]}/>
+            <CarouselCard product={products![rand(products!.length)]}/>
+            <CarouselCard product={products![rand(products!.length)]}/>
+            <CarouselCard product={products![rand(products!.length)]}/>
+            <CarouselCard product={products![rand(products!.length)]}/>
+            <CarouselCard product={products![rand(products!.length)]}/>
+            <CarouselCard product={products![rand(products!.length)]}/>
+          </Carousel>
+        </Box>
+      )
 }
 
 export default CarouselEl

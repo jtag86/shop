@@ -1,5 +1,6 @@
-import React from 'react'
-import { Box, Typography, Grid, Paper, Button, List, ListItem, ListItemIcon, ListItemText, TableContainer, Table, TableBody, TableRow, TableCell } from '@mui/material'
+import React, { useEffect } from 'react'
+import { Box, Typography, Grid, Paper, Button, List, ListItem, ListItemIcon, Table, TableBody, TableRow, TableCell, ListItemText } from '@mui/material'
+import CheckIcon from '@mui/icons-material/Check';
 import { useParams } from 'react-router-dom'
 import Header from '../common/Header'
 import Menu from '../common/Menu/Menu'
@@ -9,18 +10,22 @@ import Link from '@mui/material/Link'
 import { CATALOG, MAIN } from '../../../utils/consts'
 import { useAppSelector } from '../../../hooks/hook'
 import { getProductSelector } from '../../../redux/selectors/productSelector'
-import CheckIcon from '@mui/icons-material/Check'
 import Heart from '../../UI/Heart'
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
+import CarouselEl from '../../UI/Carousel/Carousel'
+import {v4} from 'uuid'
 
 const Product = () => {
   const {articul} = useParams()
   
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
+
   const arr = useAppSelector(state => getProductSelector(state, articul!))
   const product = arr![0]
-  console.log(product)
   if(!product) return <Typography>Товар отсутстввует</Typography>
 
   return (
@@ -59,7 +64,7 @@ const Product = () => {
           <Grid item xs={4}>
             <Box m={3} sx={{}}>
               <Paper elevation={1} sx={{padding: 2}}>
-                <img src={product.url} style={{width: '100%'}} />
+                <img src={product.url} style={{width: '100%'}} alt="111"/>
               </Paper>
             </Box>
           </Grid>
@@ -92,15 +97,12 @@ const Product = () => {
                 <List>
                   {
                     Object.keys(product).map(item => (
-                        <Typography>
-                          <ListItem sx={{margin: '0', padding: '0'}}>
-                            <ListItemIcon>
-                              <CheckIcon color='primary'/>
-                            </ListItemIcon>
-                            <ListItemText primary={product[item].name + ": " + product[item].value} />
-                          </ListItem>
-                        </Typography>
-                    
+                      <ListItem key={v4()} sx={{margin: '0', padding: '0'}}>
+                        <ListItemIcon>
+                          <CheckIcon color='primary'/>
+                        </ListItemIcon>
+                        <ListItemText  primary={product[item].name + ": " + product[item].value} />
+                      </ListItem>
                     ))
                   }
                 </List>
@@ -200,34 +202,39 @@ const Product = () => {
           </Grid>
         </Grid>
 
-        <Box ml={4}>
+        <Box m={2} sx={{textAlign: 'center'}}>
           <Typography variant="h4" color="#444">Технические характеристики</Typography>
         </Box>
-        <TableContainer component={Paper}>
-          <Box m={4}>
-
-            <Table>
-              <TableBody>
-                {
-                  Object.keys(product).map(item => (
-                    <TableRow
-                      key={product.articul.name}
-                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    >
-                      <TableCell align="left" sx={{width: "400px"}}>
-                        <Typography variant="h6" color="#777">{product[item].name}</Typography>
-                      </TableCell>
-                      <TableCell align="left" sx={{width: "400px"}}>
-                        <Typography variant="h6" color="#777">{product[item].value}</Typography>
-                      </TableCell>
-                    </TableRow>
-                  ))
-                }
-              </TableBody>
-            </Table>
-          </Box>
+        <Box m={4} sx={{width: '800px'}} mx="auto">
+          <Table>
+            <TableBody>
+              {
+                Object.keys(product).map(item => (
+                  <TableRow key={v4()}>
+                    <TableCell align="left" sx={{width: "200px", padding: '5px'}}>
+                      <Typography  sx={{fontSize: "17px"}} color="#444">
+                        <Box sx={{fontWeight: 'light'}}>
+                          {product[item].name}
+                        </Box>
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="left" sx={{width: "200px", padding: '5px'}}>
+                      <Typography sx={{fontSize: "17px"}} color="#444">
+                        <Box sx={{fontWeight: 'light'}}>
+                          {product[item].value}
+                        </Box>
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+        </Box>
           
-        </TableContainer>
+        <CarouselEl title="Другие варианты" scrollNum={1}/>
+        <CarouselEl title="С этим товаром заказывают" scrollNum={1}/>
+        <CarouselEl title="Специально для вас" scrollNum={1}/>
       </Box>
     </div>
   )

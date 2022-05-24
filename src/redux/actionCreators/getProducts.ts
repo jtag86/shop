@@ -1,6 +1,6 @@
 import { Dispatch } from "redux"
 import { db } from "../../firebase"
-import { collection, query, orderBy, startAt, startAfter, limit, getDocs } from "firebase/firestore"; 
+import { collection, getDocs } from "firebase/firestore"; 
 import { Action, ActionTypes} from '../actionTypes'
 import { IProducts } from "../reducers/productsReducer";
 
@@ -11,12 +11,11 @@ export const getProducts = () => {
     })
 
     try {
-      console.log('getDocs')
       const querySnapshot  = await getDocs(collection(db, "PROCESSORS"));
 
       let arr: IProducts[] = []
 
-      querySnapshot .forEach((item) => {
+      querySnapshot.forEach((item) => {
         const data = item.data()
         arr.push(JSON.parse(data.str))
       })

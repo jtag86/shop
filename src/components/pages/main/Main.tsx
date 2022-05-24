@@ -2,9 +2,10 @@ import React from 'react'
 import Menu from '../common/Menu/Menu'
 import Navigation from '../common/Navigation'
 import Benefits from './Benefits'
-import Carousel from '../../UI/Carousel/Carousel'
 import { Box } from '@mui/material'
 import Header from '../common/Header'
+import Footer from '../common/Footer'
+
 
 const Main = () => {
   return (
@@ -28,14 +29,14 @@ const Main = () => {
         <Benefits />
       </Box>
       <Box sx={{gridArea: 'content'}}>
-        <Carousel title={"Вам может понравится"} scrollNum={5} />
+        {/* <Carousel title={"Вам может понравится"} scrollNum={5} />
         <Carousel title={"Наши покупатели выбирают"} scrollNum={3} />
         <Carousel title={"Новинки"} scrollNum={4} />
         <Carousel title={"Товар недели"} scrollNum={1} />
-        <Carousel title={"Кэшбэк"} scrollNum={1}/>
+        <Carousel title={"Кэшбэк"} scrollNum={1}/> */}
       </Box>
       <Box sx={{gridArea: 'footer'}}>
-        FOOTER
+        <Footer />
       </Box>
     </Box>
   )

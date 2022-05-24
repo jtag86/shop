@@ -1,19 +1,15 @@
 import React, { useState } from 'react'
 import { Button, Card, CardContent, CardMedia, Typography, Box, Paper } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-
-const hoverStyle = {
-  border: "1px solid #ccc"
-}
+import { IProducts } from '../../../redux/reducers/productsReducer'
+import { NavLink } from 'react-router-dom';
 
 interface Props {
-  image: string,
-  cost: number,
-  text: string
+  product: IProducts
 }
 
-const CarouselCard: React.FC<Props> = ({image, cost, text}) => {
-
+const CarouselCard: React.FC<Props> = ({product}) => {
+  
   const [hover, setHover] = useState(false)
 
   const handleMouseEnter = () => {
@@ -25,31 +21,43 @@ const CarouselCard: React.FC<Props> = ({image, cost, text}) => {
   }
 
   return (
-    <Paper 
-      elevation={0} 
-      sx={ hover ? { width: "90%" , margin: "0 auto", border: "1px solid #ccc"} : { width: "90%" , margin: "0 auto"}} onMouseOver={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-        <img src={image}/>
-      </Box>
-      <CardContent>
-          <Typography sx={{textDecoration:  "line-through", color: "#999"}} gutterBottom variant="h6" component="div" align="center">
-          {cost-10000} ₸
-        </Typography>
-        <Typography gutterBottom variant="h5" component="div" align="center">
-          {cost} ₸
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary" align="center">
-          {text}
-        </Typography>
-        <Box
-          sx={{display: "flex", justifyContent: "space-around", marginTop: "10px"}}
-        >
-          <Button variant='contained' color="warning">
-            В КОРЗИНУ
-          </Button>
-          <FavoriteBorderIcon fontSize="large" color="warning" sx={{display: "flex", justifyContent: "center", alignItems: "center", }}/>
+    <Paper sx={{margin: 1}} elevation={2}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <Box sx={{display: "flex", justifyContent: 'space-between'}}>
+          <Box sx={{ width: "120px", height: "120px", display: 'flex', jusctifyContent: 'center', alignItems: 'center'}}>
+            <img src={product.url} style={{width: '80%'}}/>
+          </Box>
+          <NavLink to={`/products/${product.articul}`} style={{ textDecoration: 'none' }} >
+            <Box sx={{display: 'flex', jusctifyContent: 'center', alignItems: 'center', }} m={2}>
+              {product.brandArr.value}<br/> {product.modelArr.value} <br/> {product.articul}
+            </Box>
+          </NavLink>
         </Box>
-      </CardContent>
+        
+        <CardContent>
+            <Typography sx={{textDecoration:  "line-through", color: "#999"}} gutterBottom variant="h6" component="div" align="center">
+            {product.cost.value-10000} ₸
+          </Typography>
+          <Typography gutterBottom variant="h5" component="div" align="center">
+            {product.cost.value} ₸
+          </Typography>
+          <Box
+            sx={{display: "flex", justifyContent: "space-around", marginTop: "10px"}}
+          >
+            <Button variant='contained' color="warning">
+              В КОРЗИНУ
+            </Button>
+            <FavoriteBorderIcon fontSize="large" color="warning" sx={{display: "flex", justifyContent: "center", alignItems: "center", }}/>
+          </Box>
+        </CardContent>
+      </Box>
     </Paper>
   )
 }
