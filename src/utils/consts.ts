@@ -1,4 +1,6 @@
 export const MAIN = '/main'
 export const CATALOG = '/catalog'
 export const PRODUCT = '/products/:articul'
+export const NEWS1 = '/news1'
+export const COMMENTS = '/COMMENTS'
 export const OFFER = '/offer'

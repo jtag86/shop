@@ -4,13 +4,14 @@ import Navigation from '../common/Navigation'
 import Benefits from './Benefits/Benefits'
 import { Box } from '@mui/material'
 import Header from '../common/Header'
-import Footer from '../common/Footer'
 import CarouselMain from '../../UI/CarouselMain/CarouselMain'
 import CarouselEl from '../../UI/Carousel/Carousel'
 import { Dispatch } from 'redux'
 import { getProducts } from '../../../redux/actionCreators/getProducts'
 import { useDispatch } from 'react-redux'
 import News from './News'
+import ITNews from './ITNews'
+import Footer from '../common/footer/Footer'
 
 
 const Main = () => {
@@ -20,15 +21,14 @@ const Main = () => {
   }, [])
 
 
-  return (
+  return (<>
     <Box sx={{
       display: 'grid',
       gridTemplateColumns: '300px 1fr',
       gridTemplateAreas:
       `"header header"
        "sidebar main"
-       "content content"
-       "footer footer"`,
+       "content content"`,
     }}>
       <Box sx={{gridArea: 'header'}}>
         <Header />
@@ -47,11 +47,11 @@ const Main = () => {
         <CarouselEl title="Новинки" scrollNum={3}/>
         <CarouselEl title="Кешбэк" scrollNum={3}/>
         <News />
+        <ITNews />
       </Box>
-      <Box sx={{gridArea: 'footer'}}>
-        <Footer />
-      </Box>
+
     </Box>
+    </>
   )
 }
 

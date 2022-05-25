@@ -26,7 +26,7 @@ export const smartphones_gadgets = [
   {title: false, text: "Портативные колонки"},
   {title: false, text: "Кольцевые лампы"},
   {title: false, text: "Чистящие средства"},
-  {title: false, text: "Причие аксессуары"},
+  {title: false, text: "Прочие аксессуары"},
 ]
 
 export const complect = [

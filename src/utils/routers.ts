@@ -1,13 +1,14 @@
-import { MAIN, CATALOG, PRODUCT } from "./consts";
+import { MAIN, CATALOG, PRODUCT, NEWS1, COMMENTS } from "./consts";
 import Main from '../components/pages/main/Main'
 import Catalog from '../components/pages/catalog/Catalog'
 import Product from '../components/pages/product/Product'
+import Tecno from "../components/pages/news/Tecno"
+import Comments from "../components/pages/main/Comments";
 
 interface Props {
   path: string,
   Element: any
 }
-
 
 export const routers: Array<Props> = [
   {
@@ -21,6 +22,14 @@ export const routers: Array<Props> = [
   {
     path: PRODUCT,
     Element: Product
+  },
+  {
+    path: NEWS1,
+    Element: Tecno
+  },
+  {
+    path: COMMENTS,
+    Element: Comments
   },
   {
     path: '*',

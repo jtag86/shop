@@ -20,7 +20,7 @@ const CarouselEl: React.FC<Props> = ({title, scrollNum}) => {
   }
 
   return !loading 
-      ? <Box mx='auto' m={2} mt={4}>
+      ? <Box mx={5} my={10} mt={4}>
           <Box>
             <Typography variant="h4" sx={{color: "#337ab7"}}  m={1} >
               {title}
