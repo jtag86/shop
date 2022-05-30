@@ -1,24 +1,15 @@
 import { Dispatch } from "redux"
-import { db } from "../../firebase"
-import { collection, getDocs } from "firebase/firestore"; 
-import { Action, ActionTypes} from '../actionTypes'
+import { Action, ActionTypes} from '../actionTypes/actionProductTypes'
 import { IProducts } from "../reducers/productsReducer";
 
-export const getProducts = () => {
+export const getProducts = (type: string = "every") => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionTypes.GET_PRODUCTS_PENDING
     })
 
     try {
-      const querySnapshot  = await getDocs(collection(db, "PROCESSORS"));
 
-      let arr: IProducts[] = []
-
-      querySnapshot.forEach((item) => {
-        const data = item.data()
-        arr.push(JSON.parse(data.str))
-      })
       dispatch({
         type: ActionTypes.GET_PRODUCTS_SUCCESS,
         payload: arr,

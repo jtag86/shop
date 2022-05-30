@@ -12,9 +12,7 @@ interface Props {
 }
 
 const CarouselEl: React.FC<Props> = ({title, scrollNum}) => {
-
   const { loading, products } = useAppSelector(state => state.products)
-
   const rand = (length: number) => {
     return Math.floor(Math.random() * length)
   }
@@ -40,7 +38,7 @@ const CarouselEl: React.FC<Props> = ({title, scrollNum}) => {
                 sx={{
                   position: 'absolute',
                   top: "-208px",
-                  left: "1200px"
+                  left: "1140px"
                 }}
               >
                 <Button>

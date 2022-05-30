@@ -20,7 +20,7 @@ const Menu: React.FC<Props> = ({alwaysVisible}) => {
     <Box>
       <Button 
         sx={{
-          width: '300px',
+          width: '250px',
           height: '50px',
           display: 'flex',
           justifyContent: 'space-between',

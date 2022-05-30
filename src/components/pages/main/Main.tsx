@@ -4,10 +4,11 @@ import Navigation from '../common/Navigation'
 import Benefits from './Benefits/Benefits'
 import { Box } from '@mui/material'
 import Header from '../common/Header'
-import CarouselMain from '../../UI/CarouselMain/CarouselMain'
+import CarouselMain from '../../UI/CarouselMain'
 import CarouselEl from '../../UI/Carousel/Carousel'
 import { Dispatch } from 'redux'
 import { getProducts } from '../../../redux/actionCreators/getProducts'
+import { resetProducts } from '../../../redux/actionCreators/resetProducts'
 import { useDispatch } from 'react-redux'
 import News from './News'
 import ITNews from './ITNews'
@@ -18,6 +19,9 @@ const Main = () => {
   const dispatch: Dispatch<any> = useDispatch()
   useEffect(() => {
     dispatch(getProducts())
+    return () => {
+      dispatch(resetProducts())
+    }
   }, [])
 
 
@@ -33,7 +37,7 @@ const Main = () => {
       <Box sx={{gridArea: 'header'}}>
         <Header />
       </Box>
-      <Box sx={{gridArea: 'sidebar', height: '500px'}}>
+      <Box sx={{gridArea: 'sidebar'}} mx="auto">
         <Menu alwaysVisible={true}/>
       </Box>
       <Box sx={{gridArea: 'main'}}>

@@ -4,10 +4,12 @@ import Paper from '@mui/material/Paper'
 import { v4 as uuidv4} from 'uuid'
 import { Typography } from '@mui/material'
 import { useOnClickOutside } from '../../../../hooks/hook'
+import { NavLink } from 'react-router-dom'
 
 interface IMenuList {
   title: boolean,
-  text: string
+  text: string,
+  link?: string
 }
 
 interface Props {
@@ -39,16 +41,28 @@ const Modal: React.FC<Props> = ({show, text, onMouseLeave, onClose}) => {
         sx={{padding: '10px', paddingLeft: '20px'}}
       >
         {text?.map(item => {
-          return (
-            <Typography key={uuidv4()}
-              sx={
-                item.title 
-                ?{fontSize: '20px', color: '#000', width: "600px"}
-                :{fontSize: '15px', color: '#777', width: "600px", textIndent: '10px'}
-              }
-            >
-            {item.text}
-            </Typography>
+          return ( item.title
+            ?
+            ( 
+              <Typography 
+                key={uuidv4()}
+                sx={{
+                  fontSize: '20px', 
+                  color: '#000',
+                  textIndent: '0px',
+                  width: "600px",
+                }}
+              >
+                {item.text}
+              </Typography>
+            ) : (
+              <NavLink key={uuidv4()} style={{ textDecoration: 'none'}} to={`/catalog/${item.link}`} >
+                <Box m={1} sx={{fontSize: '16px', color: '#333'}}>
+                  {item.text}
+                </Box>
+              </NavLink>
+            )
+
           )
       })}
       </Paper>

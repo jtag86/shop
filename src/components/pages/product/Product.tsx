@@ -51,7 +51,7 @@ const Product = () => {
               Главная
             </Link>
             <Link underline='hover' href={CATALOG}>
-              {product.title.value}
+              Каталог
             </Link>
             <Typography>{product.brandArr.value + " " + product.modelArr.value}</Typography>
           </Breadcrumbs>
@@ -63,8 +63,19 @@ const Product = () => {
         <Grid container>
           <Grid item xs={4}>
             <Box m={3} sx={{}}>
-              <Paper elevation={1} sx={{padding: 2}}>
-                <img src={product.url} style={{width: '100%'}} alt="111"/>
+              <Paper 
+                elevation={1}             
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: '400px', 
+                  height: '400px',
+                  padding: 1
+                  
+                }}
+              >
+                <img src={product.url} style={{maxWidth: '100%', maxHeight: '100%'}} alt="111"/>
               </Paper>
             </Box>
           </Grid>
@@ -212,18 +223,18 @@ const Product = () => {
                 Object.keys(product).map(item => (
                   <TableRow key={v4()}>
                     <TableCell align="left" sx={{width: "200px", padding: '5px'}}>
-                      <Typography  sx={{fontSize: "17px"}} color="#444">
-                        <Box sx={{fontWeight: 'light'}}>
+                      <Box sx={{fontWeight: 'light'}}>
+                        <Typography  sx={{fontSize: "17px"}} color="#444">
                           {product[item].name}
-                        </Box>
-                      </Typography>
+                        </Typography>
+                      </Box>
                     </TableCell>
                     <TableCell align="left" sx={{width: "200px", padding: '5px'}}>
-                      <Typography sx={{fontSize: "17px"}} color="#444">
-                        <Box sx={{fontWeight: 'light'}}>
+                      <Box sx={{fontWeight: 'light'}}>
+                        <Typography sx={{fontSize: "17px"}} color="#444">
                           {product[item].value}
-                        </Box>
-                      </Typography>
+                        </Typography>
+                      </Box>
                     </TableCell>
                   </TableRow>
                 ))

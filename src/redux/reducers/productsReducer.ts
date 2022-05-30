@@ -1,4 +1,4 @@
-import { Action, ActionTypes } from "../actionTypes"
+import { Action, ActionTypes } from "../actionTypes/actionProductTypes"
 
 export interface IProducts {
   [key: string]: any
@@ -18,7 +18,7 @@ const initializeState: IState = {
   size: 0
 }
 
-export const productsReducer = (state: IState = initializeState, action: Action):IState => {
+export const productsReducer = (state = initializeState, action: Action):IState => {
   switch(action.type) {
     case ActionTypes.GET_PRODUCTS_PENDING:
       return {
@@ -40,6 +40,13 @@ export const productsReducer = (state: IState = initializeState, action: Action)
         products: [],
         size: 0,
         error: action.payload
+      }
+    case ActionTypes.RESET_PRODUCTS:
+      return {
+        loading: false,
+        products: [],
+        size: 0,
+        error: ""
       }
     default:
       return state

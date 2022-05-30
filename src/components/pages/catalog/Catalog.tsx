@@ -1,59 +1,71 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Menu from '../common/Menu/Menu'
-import { Box } from '@mui/material'
+import { Box, Breadcrumbs, Link, Typography } from '@mui/material'
 import Navigation from '../common/Navigation'
-import Filter from './Filter'
 import ProductList from './ProductList'
 import Header from '../common/Header'
 import { Dispatch } from 'redux'
 import { getProducts } from '../../../redux/actionCreators/getProducts'
 import { useDispatch } from 'react-redux'
-
-
+import { MAIN } from '../../../utils/consts'
+import { useAppSelector } from '../../../hooks/hook'
+import { useParams } from 'react-router-dom'
 
 const Catalog = () => {
+  const { loading } = useAppSelector(state => state.products)
+  const containerRef = React.useRef(null);
   const dispatch: Dispatch<any> = useDispatch()
-
+  const { product } = useParams()
+  
   useEffect(() => {
-    dispatch(getProducts())
-  }, [])
+    dispatch(getProducts(product))
+  }, [product])
 
-  return (
-    <Box>
-      <Header />
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between'
-        }}
+  return loading 
+  ? (
+    null
+  ) : (
+    <Box
+        ref={containerRef}
       >
-        <Box flexGrow={0} m={1}>
-          <Menu alwaysVisible={false} />
+        <Header />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}
+        >
+
+          <Box flexGrow={0} m={1}>
+            <Menu alwaysVisible={false} />
+          </Box>
+          <Box flexGrow={2}>
+            <Navigation />
+          </Box>
         </Box>
-        <Box flexGrow={2}>
-          <Navigation />
+        <Box ml={2}>
+          <Breadcrumbs>
+            <Link underline='hover' href={MAIN}>
+              Главная
+            </Link>
+            <Typography>Каталог</Typography>
+          </Breadcrumbs>
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}
+        >
+          <Box flexGrow={2}>
+            <ProductList />
+          </Box>
         </Box>
       </Box>
-
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between'
-        }}
-      >
-        <Box flexGrow={0} m={1}>
-          <Filter />
-        </Box>
-        <Box flexGrow={2}>
-          <ProductList />
-        </Box>
-      </Box>
-
-      <footer>
-        FOOTER
-      </footer>
-    </Box>
   )
-}
+
+  // return !loading &&
+  //     
+} 
 
 export default Catalog

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ButtonGroup, Box, Button } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { smartphones_gadgets, complect, notebooks, peripheral, orgtechnica } from '../../../../assets/data/menuList'
+import { smartphones_gadgets, complect } from '../../../../assets/data/menuList'
 import Modal from './Modal'
 
 const theme = createTheme({
@@ -35,7 +35,6 @@ const Buttons: React.FC<Props> = ({visible}) => {
   })
 
   const handleMouseOver = (text: Array<IModal>) => {
-    console.log("hello")
     setData({
       element: true,
       text: text
@@ -66,7 +65,7 @@ const Buttons: React.FC<Props> = ({visible}) => {
       <ThemeProvider theme={theme}>
         <ButtonGroup
           sx={{
-            width: '300px',
+            width: '250px',
             display: visible ? 'inline-flex' : 'none',
             position: 'absolute',
             zIndex: '2',
@@ -78,16 +77,16 @@ const Buttons: React.FC<Props> = ({visible}) => {
         >
             <Button onMouseOver={() => handleMouseOver(smartphones_gadgets)}>Комплектующие</Button>
             <Button onMouseOver={() => handleMouseOver(complect)}>Ноутбуки и компьютеры</Button>
-            <Button onMouseOver={() => handleMouseOver(notebooks)}>Компьютерная периферия</Button>
-            <Button onMouseOver={() => handleMouseOver(peripheral)}>Оргтехника и расходные материалы</Button>
+            <Button onMouseOver={() => handleMouseOver(smartphones_gadgets)}>Компьютерная периферия</Button>
+            <Button onMouseOver={() => handleMouseOver(complect)}>Оргтехника и расходные материалы</Button>
             <Button onMouseOver={() => handleMouseOver(smartphones_gadgets)}>Комплектующие</Button>
             <Button onMouseOver={() => handleMouseOver(complect)}>Ноутбуки и компьютеры</Button>
-            <Button onMouseOver={() => handleMouseOver(notebooks)}>Компьютерная периферия</Button>
-            <Button onMouseOver={() => handleMouseOver(peripheral)}>Оргтехника и расходные материалы</Button>
+            <Button onMouseOver={() => handleMouseOver(smartphones_gadgets)}>Компьютерная периферия</Button>
+            <Button onMouseOver={() => handleMouseOver(complect)}>Оргтехника и расходные материалы</Button>
             <Button onMouseOver={() => handleMouseOver(smartphones_gadgets)}>Комплектующие</Button>
             <Button onMouseOver={() => handleMouseOver(complect)}>Ноутбуки и компьютеры</Button>
-            <Button onMouseOver={() => handleMouseOver(notebooks)}>Компьютерная периферия</Button>
-            <Button onMouseOver={() => handleMouseOver(peripheral)}>Оргтехника и расходные материалы</Button>
+            <Button onMouseOver={() => handleMouseOver(smartphones_gadgets)}>Компьютерная периферия</Button>
+            <Button onMouseOver={() => handleMouseOver(complect)}>Оргтехника и расходные материалы</Button>
         </ButtonGroup>
         <Modal show={data.element} text={data.text} onMouseLeave={() => handleMouseLeave()} onClose={() => handleOnClickOutSide()}/>
       </ThemeProvider>

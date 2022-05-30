@@ -154,7 +154,7 @@ const News = () => {
               <Grid item xs={9}>
                 <Typography>Талгат</Typography>
                 <Box sx={{overflow: 'auto', height: '60px'}}>
-                  <Typography variant="body2">Вежливо, культурно. Приятно разговаривать с менеджерами компании Белый Ветер. Все молодцы!</Typography>
+                  <Typography variant="body2">Вежливо, культурно. Приятно разговаривать с менеджерами компании. Все молодцы!</Typography>
                 </Box>
               </Grid>
             </Grid>

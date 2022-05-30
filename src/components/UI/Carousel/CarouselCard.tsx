@@ -9,7 +9,6 @@ interface Props {
 }
 
 const CarouselCard: React.FC<Props> = ({product}) => {
-  
   const [hover, setHover] = useState(false)
 
   const handleMouseEnter = () => {
@@ -31,12 +30,21 @@ const CarouselCard: React.FC<Props> = ({product}) => {
         }}
       >
         <Box sx={{display: "flex", justifyContent: 'space-between'}}>
-          <Box sx={{ width: "120px", height: "120px", display: 'flex', jusctifyContent: 'center', alignItems: 'center'}}>
-            <img src={product.url} style={{width: '80%'}}/>
+          <Box           
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100px', 
+              height: '100px',
+              margin: 1
+            }}
+          >
+            <img style={{maxWidth: '100%', maxHeight: '100%'}} src={product.url} />
           </Box>
           <NavLink to={`/products/${product.articul}`} style={{ textDecoration: 'none' }} >
             <Box sx={{display: 'flex', jusctifyContent: 'center', alignItems: 'center', }} m={2}>
-              {product.brandArr.value}<br/> {product.modelArr.value} <br/> {product.articul}
+            {product.brandArr.value}<br/> {product.modelArr.value} <br/> {product.articul}
             </Box>
           </NavLink>
         </Box>

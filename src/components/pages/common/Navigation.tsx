@@ -5,14 +5,14 @@ import Box from '@mui/material/Box'
 
 const Navigation = () => {
   return (
-    <Typography
-      variant= "h6"
+    <Box
       sx={{
-        paddingLeft: "20px",
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         alignItems: "center",
-        
+        fontSize: '22px',
+        fontWeight: 'bold',
+        mt: 1
       }}
     >
       <Link underline="none">
@@ -27,10 +27,7 @@ const Navigation = () => {
       <Link underline="none" sx={{color: '#e45757'}}>
         Купить дешевле
       </Link>
-      <div>
-        <Search />
-      </div>
-    </Typography>
+    </Box>
   )
 }
 

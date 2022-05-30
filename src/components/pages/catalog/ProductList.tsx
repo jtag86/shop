@@ -38,11 +38,15 @@ const ProductList = () => {
         </Box>
       ) : (
         <Box>
-          <Pagination count={maxPages} page={currentPage} onChange={(e: any, value) => handleChangePage(e, value)} showFirstButton showLastButton color="primary" />
+          <Box sx={{display: 'flex', justifyContent: 'center', margin: 3}}>
+            <Pagination count={maxPages} page={currentPage} onChange={(e: any, value) => handleChangePage(e, value)} showFirstButton showLastButton color="primary" />
+          </Box>
           {currentProducts?.map(item => {
             return <ProductItem key={v4()} item={item}/>
           })}
-          <Pagination count={maxPages} page={currentPage} onChange={(e: any, value) => handleChangePage(e, value)} showFirstButton showLastButton color="primary" />
+          <Box sx={{display: 'flex', justifyContent: 'center', margin: 3}}>
+            <Pagination count={maxPages} page={currentPage} onChange={(e: any, value) => handleChangePage(e, value)} showFirstButton showLastButton color="primary" />
+          </Box>
         </Box>
       )
     }

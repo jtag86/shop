@@ -30,12 +30,22 @@ const ProductItem: React.FC<Props> = ({item}) => {
   return (
     <Card sx={{margin: 3}}>
       <Box sx={{display: 'flex', justifyContent: "space-between"}}>
-        <Paper elevation={3} sx={{width: '200px', margin: 2, padding: 1}}>
-          <img style={{width: '100%'}} src={item.url} loading="lazy"/>
+        <Paper 
+          elevation={3} 
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '200px', 
+            height: '200px',
+            padding: 1,
+            margin: 2
+          }}>
+          <img style={{maxWidth: '100%', maxHeight: '100%'}} src={item.url} loading="lazy"/>
         </Paper>
 
-        <Box sx={{flexBasis: '600px', height: "200px", overflow: 'hidden', margin: 1, }}>
-          <NavLink to={`/products/${item.articul}`} >
+        <Box sx={{flexBasis: '600px', height: "200px", overflow: 'hidden', margin: 1,}}>
+          <NavLink style={{ textDecoration: 'none'}} to={`/products/${item.articul}`} >
             <Box m={1} sx={{fontSize: '24px'}}>
               {`${item.brandArr.value} ${item.modelArr.value} `}
             </Box>

@@ -1,9 +1,9 @@
 import React from 'react'
 import Carousel from 'nuka-carousel'
 import { Typography, Box, Button } from '@mui/material'
-import image1 from '../../../assets/img/slider1.jpg'
-import image2 from '../../../assets/img/slider2.jpg'
-import image3 from '../../../assets/img/slider3.jpg'
+import image1 from '../../assets/img/slider1.jpg'
+import image2 from '../../assets/img/slider2.jpg'
+import image3 from '../../assets/img/slider3.jpg'
 
 const CarouselMain = () => {
   return (

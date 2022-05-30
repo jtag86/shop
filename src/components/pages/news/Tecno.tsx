@@ -34,7 +34,7 @@ const Tecno = () => {
         <img src={image1} style={{maxWidth: '100%'}}/>
       </Paper>
       <Box m={5}>
-        <Typography variant="body1">Смартфоны Tehno поступили в магазины «Белый Ветер» и интернет-магазин shop.kz. Среди уже знакомых нам серий Spark, Pova, Camon и POP5 появились новые для нашего ассортимента модели – Spark GO 2022 и POP5 LTE.</Typography>
+        <Typography variant="body1">Смартфоны Tehno поступили в магазины и интернет-магазин. Среди уже знакомых нам серий Spark, Pova, Camon и POP5 появились новые для нашего ассортимента модели – Spark GO 2022 и POP5 LTE.</Typography>
       </Box>
       <Box m={5}>
         <Typography variant="h4">Tecno Spark GO 2022</Typography>
