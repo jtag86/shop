@@ -7,21 +7,16 @@ import Header from '../common/Header'
 import CarouselMain from '../../UI/CarouselMain'
 import CarouselEl from '../../UI/Carousel/Carousel'
 import { Dispatch } from 'redux'
-import { getProducts } from '../../../redux/actionCreators/getProducts'
-import { resetProducts } from '../../../redux/actionCreators/resetProducts'
 import { useDispatch } from 'react-redux'
 import News from './News'
 import ITNews from './ITNews'
 import Footer from '../common/footer/Footer'
-
+import { addProducts } from '../../../redux/actionCreators/getProducts'
 
 const Main = () => {
   const dispatch: Dispatch<any> = useDispatch()
   useEffect(() => {
-    dispatch(getProducts())
-    return () => {
-      dispatch(resetProducts())
-    }
+    dispatch(addProducts())
   }, [])
 
 

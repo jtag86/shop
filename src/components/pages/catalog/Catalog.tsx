@@ -5,7 +5,6 @@ import Navigation from '../common/Navigation'
 import ProductList from './ProductList'
 import Header from '../common/Header'
 import { Dispatch } from 'redux'
-import { getProducts } from '../../../redux/actionCreators/getProducts'
 import { useDispatch } from 'react-redux'
 import { MAIN } from '../../../utils/consts'
 import { useAppSelector } from '../../../hooks/hook'
@@ -17,9 +16,7 @@ const Catalog = () => {
   const dispatch: Dispatch<any> = useDispatch()
   const { product } = useParams()
   
-  useEffect(() => {
-    dispatch(getProducts(product))
-  }, [product])
+
 
   return loading 
   ? (

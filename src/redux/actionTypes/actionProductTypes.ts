@@ -4,11 +4,12 @@ export enum ActionTypes {
   GET_PRODUCTS_PENDING = 'GET_PRODUCTS_PENDING',
   GET_PRODUCTS_SUCCESS = 'GET_PRODUCTS_SUCCESS',
   GET_PRODUCTS_FAIL = 'GET_PRODUCTS_FAIL',
-  RESET_PRODUCTS = 'RESET_PRODUCTS'
+  PRODUCTS_GENERATING = 'PRODUCTS_GENERATING'
 }
 
-interface actionReset {
-  type: ActionTypes.RESET_PRODUCTS
+interface actionGen {
+  type: ActionTypes.PRODUCTS_GENERATING,
+  payload: Array<IProducts>,
 }
 
 interface actionPending {
@@ -26,4 +27,4 @@ interface actionFail {
   payload: string
 }
 
-export type Action = actionPending | actionSuccess | actionFail | actionReset
+export type Action = actionPending | actionSuccess | actionFail | actionGen

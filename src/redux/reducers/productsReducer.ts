@@ -41,10 +41,10 @@ export const productsReducer = (state = initializeState, action: Action):IState 
         size: 0,
         error: action.payload
       }
-    case ActionTypes.RESET_PRODUCTS:
+    case ActionTypes.PRODUCTS_GENERATING:
       return {
         loading: false,
-        products: [],
+        products: action.payload,
         size: 0,
         error: ""
       }
