@@ -6,7 +6,7 @@ import Badge from '@mui/material/Badge'
 import IconButton from '@mui/material/IconButton'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { useAppSelector } from '../../../hooks/hook'
-import { BASKET } from '../../../utils/consts'
+import { BASKET, DELIVERY, PAYMENT, RELIABILITY } from '../../../utils/consts'
 
 
 const Navigation = () => {
@@ -27,13 +27,13 @@ const Navigation = () => {
         mt: 1
       }}
     >
-       <NavLink style={{ textDecoration: 'none'}} to={BASKET} >
+       <NavLink style={{ textDecoration: 'none'}} to={DELIVERY} >
         Доставка
       </NavLink>
-      <NavLink style={{ textDecoration: 'none'}} to={BASKET} >
+      <NavLink style={{ textDecoration: 'none'}} to={PAYMENT} >
         Оплата
       </NavLink>
-      <NavLink style={{ textDecoration: 'none'}} to={BASKET} >
+      <NavLink style={{ textDecoration: 'none'}} to={RELIABILITY}>
         Гарантия надежности
       </NavLink>
       <NavLink style={{ textDecoration: 'none'}} to={BASKET} >
