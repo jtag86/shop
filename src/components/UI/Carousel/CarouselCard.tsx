@@ -3,12 +3,19 @@ import { Button, Card, CardContent, CardMedia, Typography, Box, Paper } from '@m
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { IProducts } from '../../../redux/reducers/productsReducer'
 import { NavLink } from 'react-router-dom';
+import { addProductsToBasket } from '../../../redux/actionCreators/addProductsToBasket';
+import { Dispatch } from 'redux'
+import { useDispatch } from 'react-redux';
+
 
 interface Props {
   product: IProducts
 }
 
 const CarouselCard: React.FC<Props> = ({product}) => {
+
+  const dispatch: Dispatch<any> = useDispatch()
+
   const [hover, setHover] = useState(false)
 
   const handleMouseEnter = () => {
@@ -17,6 +24,10 @@ const CarouselCard: React.FC<Props> = ({product}) => {
 
   const handleMouseLeave = () => {
     setHover(false)
+  }
+
+  const handleClick = () => {
+    dispatch(addProductsToBasket(product))
   }
 
   return (
@@ -59,7 +70,7 @@ const CarouselCard: React.FC<Props> = ({product}) => {
           <Box
             sx={{display: "flex", justifyContent: "space-around", marginTop: "10px"}}
           >
-            <Button variant='contained' color="warning">
+            <Button onClick={handleClick} variant='contained' color="warning">
               В КОРЗИНУ
             </Button>
             <FavoriteBorderIcon fontSize="large" color="warning" sx={{display: "flex", justifyContent: "center", alignItems: "center", }}/>

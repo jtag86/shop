@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, MouseEvent } from 'react'
 import { Box, Typography, Grid, Paper, Button, List, ListItem, ListItemIcon, Table, TableBody, TableRow, TableCell, ListItemText } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check';
 import { useParams } from 'react-router-dom'
@@ -16,17 +16,25 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import CarouselEl from '../../UI/Carousel/Carousel'
 import {v4} from 'uuid'
+import { Dispatch } from 'redux'
+import { useDispatch } from 'react-redux';
+import { ActionBasket } from '../../../redux/actionTypes/actionBasketTypes';
+import { addProductsToBasket } from '../../../redux/actionCreators/addProductsToBasket';
 
 const Product = () => {
   const {articul} = useParams()
-  
+  const dispatch: Dispatch<any> = useDispatch()
+
   useEffect(() => {
     window.scrollTo(0, 0)
   })
 
-  const arr = useAppSelector(state => productSelector(state, articul!))
-  const product = arr![0]
-  if(!product) return <Typography>Товар отсутстввует</Typography>
+  const product = useAppSelector(state => productSelector(state, articul!))
+  if(!product) return <Typography>Товар отсутствует</Typography>
+
+  const handleClick = () => {
+    dispatch(addProductsToBasket(product))
+  }
 
   return (
     <div>
@@ -94,8 +102,8 @@ const Product = () => {
               </Grid>
               <Grid item xs={6}>
                 <Box m={1}>
-                  <Button variant='contained' color="warning" fullWidth={true}>
-                    Купить
+                  <Button onClick={handleClick} variant='contained' color="warning" fullWidth={true}>
+                    в корзину
                   </Button>
                 </Box>
                 <Box m={1}>

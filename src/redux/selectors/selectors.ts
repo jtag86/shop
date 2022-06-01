@@ -5,5 +5,5 @@ export const typeProductsSelector = (state: RootState, title: string) => {
 }
 
 export const productSelector = (state: RootState, articul: string) => {
-  return state.products.products?.filter(item => item.articul === articul)
+  return state.products.products?.filter(item => item.articul === articul).shift()
 }

@@ -1,9 +1,21 @@
-import React from 'react'
-import { Link, Typography } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import Search  from '../../UI/Search'
 import Box from '@mui/material/Box'
+import Badge from '@mui/material/Badge'
+import IconButton from '@mui/material/IconButton'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { useAppSelector } from '../../../hooks/hook'
+import { BASKET } from '../../../utils/consts'
+
 
 const Navigation = () => {
+  const [basketSize, setBasketSize] = useState<number>()
+  const basket = useAppSelector(state => state.basket.products)
+  useEffect(() => {
+    setBasketSize(basket.length)
+  }, [basket.length])
+  
   return (
     <Box
       sx={{
@@ -15,18 +27,27 @@ const Navigation = () => {
         mt: 1
       }}
     >
-      <Link underline="none">
+       <NavLink style={{ textDecoration: 'none'}} to={BASKET} >
         Доставка
-      </Link>
-      <Link underline="none">
+      </NavLink>
+      <NavLink style={{ textDecoration: 'none'}} to={BASKET} >
         Оплата
-      </Link>
-      <Link underline="none">
+      </NavLink>
+      <NavLink style={{ textDecoration: 'none'}} to={BASKET} >
         Гарантия надежности
-      </Link>
-      <Link underline="none" sx={{color: '#e45757'}}>
+      </NavLink>
+      <NavLink style={{ textDecoration: 'none'}} to={BASKET} >
         Купить дешевле
-      </Link>
+      </NavLink>
+      <Box>
+        <NavLink style={{ textDecoration: 'none'}} to={BASKET} >
+          <IconButton aria-label="cart">
+            <Badge badgeContent={basketSize} color="secondary">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
+        </NavLink>
+      </Box>
     </Box>
   )
 }
