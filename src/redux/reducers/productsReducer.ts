@@ -20,31 +20,17 @@ const initializeState: IState = {
 
 export const productsReducer = (state = initializeState, action: Action):IState => {
   switch(action.type) {
-    case ActionTypes.GET_PRODUCTS_PENDING:
-      return {
-        loading: true,
-        products: [],
-        size: 0,
-        error: ""
-      }
-    case ActionTypes.GET_PRODUCTS_SUCCESS:
+    case ActionTypes.PRODUCTS_GENERATING:
       return {
         loading: false,
         products: action.payload,
         size: action.size,
         error: ""
       }
-    case ActionTypes.GET_PRODUCTS_FAIL:
-      return {
-        loading: true,
-        products: [],
-        size: 0,
-        error: action.payload
-      }
-    case ActionTypes.PRODUCTS_GENERATING:
+    case ActionTypes.PRODUCTS_RESET:
       return {
         loading: false,
-        products: action.payload,
+        products: [],
         size: 0,
         error: ""
       }

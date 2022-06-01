@@ -7,62 +7,59 @@ import Header from '../common/Header'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { MAIN } from '../../../utils/consts'
-import { useAppSelector } from '../../../hooks/hook'
 import { useParams } from 'react-router-dom'
+import { addProducts } from '../../../redux/actionCreators/addProducts'
+import { resetProducts } from '../../../redux/actionCreators/resetProducts'
 
 const Catalog = () => {
-  const { loading } = useAppSelector(state => state.products)
-  const containerRef = React.useRef(null);
   const dispatch: Dispatch<any> = useDispatch()
+  useEffect(() => {
+    dispatch(addProducts())
+    return (() => {
+      dispatch(resetProducts)
+    })
+  }, [])
+
+  const containerRef = React.useRef(null)
   const { product } = useParams()
-  
 
-
-  return loading 
-  ? (
-    null
-  ) : (
+  return <Box
+    ref={containerRef}
+  >
+    <Header />
     <Box
-        ref={containerRef}
-      >
-        <Header />
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between'
-          }}
-        >
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between'
+      }}
+    >
 
-          <Box flexGrow={0} m={1}>
-            <Menu alwaysVisible={false} />
-          </Box>
-          <Box flexGrow={2}>
-            <Navigation />
-          </Box>
-        </Box>
-        <Box ml={2}>
-          <Breadcrumbs>
-            <Link underline='hover' href={MAIN}>
-              Главная
-            </Link>
-            <Typography>Каталог</Typography>
-          </Breadcrumbs>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between'
-          }}
-        >
-          <Box flexGrow={2}>
-            <ProductList />
-          </Box>
-        </Box>
+      <Box flexGrow={0} m={1}>
+        <Menu alwaysVisible={false} />
       </Box>
-  )
-
-  // return !loading &&
-  //     
+      <Box flexGrow={2}>
+        <Navigation />
+      </Box>
+    </Box>
+    <Box ml={2}>
+      <Breadcrumbs>
+        <Link underline='hover' href={MAIN}>
+          Главная
+        </Link>
+        <Typography>Каталог</Typography>
+      </Breadcrumbs>
+    </Box>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between'
+      }}
+    >
+      <Box flexGrow={2}>
+        <ProductList />
+      </Box>
+    </Box>
+    </Box>
 } 
 
 export default Catalog

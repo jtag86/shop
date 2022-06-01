@@ -9,10 +9,10 @@ import Breadcrumbs from '@mui/material/Breadcrumbs'
 import Link from '@mui/material/Link'
 import { CATALOG, MAIN } from '../../../utils/consts'
 import { useAppSelector } from '../../../hooks/hook'
-import { getProductSelector } from '../../../redux/selectors/productSelector'
+import { productSelector } from '../../../redux/selectors/selectors'
 import Heart from '../../UI/Heart'
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import CarouselEl from '../../UI/Carousel/Carousel'
 import {v4} from 'uuid'
@@ -24,7 +24,7 @@ const Product = () => {
     window.scrollTo(0, 0)
   })
 
-  const arr = useAppSelector(state => getProductSelector(state, articul!))
+  const arr = useAppSelector(state => productSelector(state, articul!))
   const product = arr![0]
   if(!product) return <Typography>Товар отсутстввует</Typography>
 

@@ -340,6 +340,10 @@ export const phoneCases = {
 }
 
 export const books = {
+  title: {
+    name: 'Название',
+    value: 'Книги'
+  },
   cost: {
     name: 'Цена',
     value: ['20000', '23000', '12000']
@@ -450,6 +454,10 @@ export const books = {
 }
 
 export const monopods = {
+  title: {
+    name: 'Название',
+    value: 'Моноподы'
+  },
   cost: {
     name: 'Цена',
     value: ['20000', '23000', '12000']
@@ -846,7 +854,7 @@ export const smartphones = {
   },
 }
 
-export const pushButtonPhones = {
+export const pushButtonPhones = { 
   cost: {
     name: 'Цена',
     value: ['20000', '23000', '12000']
