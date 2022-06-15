@@ -3,7 +3,7 @@ import { Box, Button } from '@mui/material'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { MAIN } from '../../../utils/consts'
-import Header from '../common/Header'
+import Header from '../common/Header/Header'
 import Divider from '@mui/material/Divider';
 
 const Payment = () => {

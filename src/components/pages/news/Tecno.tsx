@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Breadcrumbs, Grid, Link, Typography, Paper } from '@mui/material'
 import { MAIN, NEWS1 } from '../../../utils/consts'
-import Header from '../common/Header'
+import Header from '../common/Header/Header'
 import Menu from '../common/Menu/Menu'
 import Navigation from '../common/Navigation'
 import image1 from '../../../assets/img/news/news1.jpg'

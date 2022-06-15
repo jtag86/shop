@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
-import Header from '../common/Header'
+import Header from '../common/Header/Header'
 import Menu from '../common/Menu/Menu'
 import Navigation from '../common/Navigation'
 import Table from '@mui/material/Table';

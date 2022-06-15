@@ -2,7 +2,7 @@ import React, { useEffect, MouseEvent } from 'react'
 import { Box, Typography, Grid, Paper, Button, List, ListItem, ListItemIcon, Table, TableBody, TableRow, TableCell, ListItemText } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check';
 import { useParams } from 'react-router-dom'
-import Header from '../common/Header'
+import Header from '../common/Header/Header'
 import Menu from '../common/Menu/Menu'
 import Navigation from '../common/Navigation'
 import Breadcrumbs from '@mui/material/Breadcrumbs'

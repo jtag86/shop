@@ -4,13 +4,21 @@ export enum ActionTypes {
   GET_PRODUCTS_PENDING = 'GET_PRODUCTS_PENDING',
   GET_PRODUCTS_SUCCESS = 'GET_PRODUCTS_SUCCESS',
   GET_PRODUCTS_FAIL = 'GET_PRODUCTS_FAIL',
-  PRODUCTS_GENERATING = 'PRODUCTS_GENERATING',
+  PRODUCTS_GEN_PENDING = 'PRODUCTS_PENDING',
+  PRODUCTS_GEN_FINISHED = 'PRODUCTS_GEN_FINISHED',
   PRODUCTS_RESET = 'PRODUCTS_RESET'
 }
 
+interface actionGenPending {
+  type: ActionTypes.PRODUCTS_GEN_PENDING
+}
+
 interface actionGen {
-  type: ActionTypes.PRODUCTS_GENERATING,
-  payload: Array<IProducts>,
+  type: ActionTypes.PRODUCTS_GEN_FINISHED,
+  payload: IProducts[],
+  weekProducts: IProducts[],
+  newProducts: IProducts[],
+  favProducts: IProducts[],
   size: number
 }
 
@@ -21,4 +29,4 @@ interface actionReset {
 }
 
 
-export type Action =  actionGen | actionReset
+export type Action =  actionGenPending | actionGen | actionReset

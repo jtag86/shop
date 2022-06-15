@@ -3,7 +3,7 @@ import { Typography } from '@mui/material'
 import { Box, Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { MAIN } from '../../../utils/consts'
-import Header from '../common/Header'
+import Header from '../common/Header/Header'
 import Divider from '@mui/material/Divider';
 import shopiknal from '../../../assets/img/shopiknal500.jpg'
 

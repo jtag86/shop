@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import Search  from '../../UI/Search'
+import Search  from './Header/Search'
 import Box from '@mui/material/Box'
 import Badge from '@mui/material/Badge'
 import IconButton from '@mui/material/IconButton'
