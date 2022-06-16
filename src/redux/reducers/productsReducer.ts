@@ -12,8 +12,9 @@ export interface IFeatureProducts {
 
 interface IState {
   loading: boolean,
-  products: Array<IProducts>,
+  products: IProducts[],
   featuredProducts: IFeatureProducts,
+  bannerProducts: IProducts[],
   error: string | null,
   size: number
 }
@@ -26,6 +27,7 @@ const initializeState: IState = {
     newProducts: [],
     favProducts: [],
   },
+  bannerProducts: [],
   error: null,
   size: 0
 }
@@ -41,6 +43,7 @@ export const productsReducer = (state = initializeState, action: Action):IState 
           newProducts: [],
           favProducts: [],
         },
+        bannerProducts: [],
         size: 0,
         error: ""
       }
@@ -54,6 +57,7 @@ export const productsReducer = (state = initializeState, action: Action):IState 
           newProducts: action.newProducts,
           favProducts: action.favProducts,
         },
+        bannerProducts: action.bannerProducts,
         size: action.size,
         error: ""
       }
@@ -66,6 +70,7 @@ export const productsReducer = (state = initializeState, action: Action):IState 
           newProducts: [],
           favProducts: [],
         },
+        bannerProducts: [],
         size: 0,
         error: ""
       }

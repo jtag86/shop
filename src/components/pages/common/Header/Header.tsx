@@ -9,7 +9,6 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-
 const Header = () => {
   return (
     <Wrapper>

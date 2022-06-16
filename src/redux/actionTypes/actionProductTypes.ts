@@ -19,6 +19,7 @@ interface actionGen {
   weekProducts: IProducts[],
   newProducts: IProducts[],
   favProducts: IProducts[],
+  bannerProducts: IProducts[],
   size: number
 }
 

@@ -148,7 +148,13 @@ export const addProducts = () => {
       newProducts.push(products[rand])
       rand = randomInteger(0, products.length)
       favProducts.push(products[rand])
-      console.log(rand)
+    }
+
+    let bannerProducts:IProducts[] = []
+
+    for(let i = 0; i < 4; i++) {
+      let rand = randomInteger(0, mbArr.length)
+      bannerProducts.push(mbArr[rand])
     }
 
     dispatch({
@@ -157,7 +163,8 @@ export const addProducts = () => {
       weekProducts,
       newProducts,
       favProducts,
-      size: products.length
+      bannerProducts,
+      size: products.length,
     })
   }
 }

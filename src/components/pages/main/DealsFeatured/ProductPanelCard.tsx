@@ -6,13 +6,6 @@ import { device } from '../../../../styles/device'
 
 const Wrapper = styled.div`
   margin-top: 50px;
-  flex-basis: 24%;
-  @media ${device.mobileL} {
-    flex-basis: 30%;
-  }
-  @media ${device.mobileS} {
-    flex-basis: 80%;
-  }
 `
 
 const FlexCol = styled.div`

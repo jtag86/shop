@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { device } from '../../../../styles/device'
 import { useAppSelector } from '../../../../hooks/hook'
 import Card from './Card'
+import Carousel from 'nuka-carousel'
 
 import { MdArrowBackIosNew } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
@@ -16,10 +17,7 @@ import image4 from '../../../../assets/img/popular_categories/popular_4.png'
 import image5 from '../../../../assets/img/popular_categories/popular_5.png'
 import Slider from '../../../UI/Slider';
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+const WrapperCarousel = styled.div`
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -67,11 +65,6 @@ const Flex = styled.div`
 `
 
 const LeftArrow = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 10;
-  display: inline-block;
   width: 36px;
   height: 36px;
   box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
@@ -81,59 +74,79 @@ const LeftArrow = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
-
-const RightArrow = styled.div`
-  position: absolute;
-  top: 100px;
-  left: 0px;
-  z-index: 10;
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
-  border-radius: 50%;
-  text-align: center;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const Item = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   user-select: none;
 `
 
-const Item1 = styled(Item)`
-  background-color: cornflowerblue;
-`
+const RightArrow = styled.div`
+  width: 36px;
+  height: 36px;
+  box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-const Item2 = styled(Item)`
-  background-color: coral;
-`
-
-const Item3 = styled(Item)`
-  background-color: darkseagreen;
 `
 
 
 const PopularCategories = () => {
+  const [countsElemCarousel, setCountsElemCarousel] = useState(1)
+
+  console.log("countsElemCarousel",countsElemCarousel)
+
+  const handleWidthCarousel = () => {
+    const {innerWidth} = getWindowSize()
+    console.log(innerWidth)
+    if(innerWidth > 1200) setCountsElemCarousel(4)
+    else if(innerWidth > 768 ) setCountsElemCarousel(4)
+    else if(innerWidth > 576) setCountsElemCarousel(2)
+  }
+
+  useEffect(() => {
+    handleWidthCarousel()
+    setInterval(() => {
+      window.addEventListener('resize', handleWidthCarousel, { once: true });
+    }, 100)
+  }, [])
+
   const { loading, products } = useAppSelector(state => state.products)
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const chevronWidth = 40;
 
   return !false ? 
-    <Wrapper>
-      <Flex>
-        <Slider slidesToShow={3} slidesToMove={2}>
-          <Item1>item1</Item1>
-          <Item2>item2</Item2>
-          <Item3>item3</Item3>
-        </Slider>
-      </Flex>
-    </Wrapper>
+    <WrapperCarousel>
+      <Carousel
+        wrapAround={true}
+        slidesToShow={countsElemCarousel}
+        renderCenterLeftControls={({previousSlide}) => (
+          <LeftArrow onClick={previousSlide}>
+            <MdArrowBackIosNew />
+          </LeftArrow>
+        )}
+        renderCenterRightControls={({nextSlide }) => (
+          <RightArrow onClick={nextSlide }>
+            <MdArrowForwardIos />
+          </RightArrow>
+        )}
+        renderBottomCenterControls ={null}
+      >
+        <Card image={image1} title="Смартфоны" value={1} />
+        <Card image={image2} title="Мониторы" value={0}/>
+        <Card image={image3} title="Видеокарты" value={1}/>
+        <Card image={image4} title="HDD" value={0}/>
+      </Carousel> 
+    </WrapperCarousel>
   : null 
 }
 
 export default PopularCategories
+
+const getWindowSize = () => {
+  const {innerWidth, innerHeight} = window;
+  return {innerWidth, innerHeight};
+}
+
+
+

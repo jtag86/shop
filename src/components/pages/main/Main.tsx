@@ -16,6 +16,7 @@ import Characters from './Characters'
 import DealsFeatured from './DealsFeatured/DealsFeatured'
 import Banner from './Banner'
 import PopularCategories from './PopularCategories/Index'
+import BannerMB from './BannerMB/BannerMB'
 
 const Main = () => {
   const dispatch: Dispatch<any> = useDispatch()
@@ -30,6 +31,7 @@ const Main = () => {
         <Characters />
         <DealsFeatured />
         <PopularCategories />
+        <BannerMB />
   </>
         // <Box sx={{gridArea: 'sidebar'}} mx="auto">
         //   <Menu alwaysVisible={true}/>

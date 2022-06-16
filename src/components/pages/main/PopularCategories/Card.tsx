@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { IProducts } from '../../../../redux/reducers/productsReducer'
 import { device } from '../../../../styles/device'
 
@@ -9,20 +9,12 @@ const Wrapper = styled.div<{value: number}>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 100%;
- 
   background-color: ${props => props.value ? "#FFF" : "#eff6fa"};
-
 
   @media ${device.tablet} {
     flex-basis: 30%;
   }
-  @media ${device.mobileS} {
-    flex-basis: 50%;
-    :nth-child(odd) {
-      background-color: #fff;
-    }
-  }
+
 
   height: 190px;
 `
@@ -33,6 +25,10 @@ const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media ${device.mobileS} {
+    width: 70px;
+    height: 70px;
+  }
 `
 
 const Image = styled.img`
@@ -59,7 +55,6 @@ interface Props {
 }
 
 const Card:React.FC<Props> = ({image, title, value}) => {
-  console.log(value)
   return (
     <Wrapper value={value}>
       <ImageWrapper ><Image src={image} /></ImageWrapper>
