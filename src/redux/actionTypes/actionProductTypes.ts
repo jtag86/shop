@@ -20,6 +20,7 @@ interface actionGen {
   newProducts: IProducts[],
   favProducts: IProducts[],
   bannerProducts: IProducts[],
+  trendProducts: IProducts[],
   size: number
 }
 

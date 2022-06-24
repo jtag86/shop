@@ -1,13 +1,13 @@
+import BasketPage from "../pages/BasketPage";
+import CommentsPage from "../pages/CommentsPage";
 import { MAIN, CATALOG, PRODUCT, NEWS1, COMMENTS, BASKET, DELIVERY, PAYMENT, RELIABILITY } from "./consts";
-import Main from '../components/pages/main/Main'
-import Catalog from '../components/pages/catalog/Catalog'
-import Product from '../components/pages/product/Product'
-import Tecno from "../components/pages/news/Tecno"
-import Comments from "../components/pages/main/Comments";
-import Basket from "../components/pages/basket/Basket";
-import Delivery from "../components/pages/main/Delivery";
-import Payment from "../components/pages/main/Payment";
-import Reliability from "../components/pages/main/Reliability";
+import DeliveryPage from "../pages/DeliveryPage";
+import PaymentPage from "../pages/PaymentPage";
+import CatalogPage from "../pages/CatalogPage";
+import ProductPage from "../pages/ProductPage";
+import MainPage from "../pages/MainPage";
+import TecnoPage from "../pages/TecnoPage";
+import ReliabilityPage from "../pages/ReliabilityPage";
 
 interface Props {
   path: string,
@@ -17,42 +17,42 @@ interface Props {
 export const routers: Array<Props> = [
   {
     path: MAIN,
-    Element: Main
+    Element: MainPage
   },
   {
     path: CATALOG,
-    Element: Catalog
+    Element: CatalogPage
   },
   {
     path: PRODUCT,
-    Element: Product
+    Element: ProductPage
   },
   {
     path: NEWS1,
-    Element: Tecno
+    Element: TecnoPage
   },
   {
     path: COMMENTS,
-    Element: Comments
+    Element: CommentsPage
   },
   {
     path: BASKET,
-    Element: Basket
+    Element: BasketPage
   },
   {
     path: DELIVERY,
-    Element: Delivery
+    Element: DeliveryPage
   },
   {
     path: PAYMENT,
-    Element: Payment
+    Element: PaymentPage
   },
   {
     path: RELIABILITY,
-    Element: Reliability
+    Element: ReliabilityPage
   },
   {
     path: '*',
-    Element: Main
+    Element: MainPage
   },
 ]

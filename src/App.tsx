@@ -1,24 +1,13 @@
 import React from 'react'
-import { createGlobalStyle } from 'styled-components'
-import AppRouters from './components/common/AppRouters'
-import Footer from './components/pages/common/footer/Footer';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: 'Rubik', sans-serif;
-
-  }
-  * {
-    margin: 0;
-    padding: 0;
-  }
-`
-
+import AppRouters from './utils/AppRouters'
+import { GlobalStyle } from './styles/global';
+import Header from './components/Header/Header';
 
 const App = () => {
   return (
     <div className="App">
       <GlobalStyle />
+      <Header />
       <AppRouters />
     </div>
   );

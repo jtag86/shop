@@ -157,6 +157,13 @@ export const addProducts = () => {
       bannerProducts.push(mbArr[rand])
     }
 
+    let trendProducts:IProducts[] = []
+
+    for(let i = 0; i < 10; i++) {
+      let rand = randomInteger(0, products.length)
+      trendProducts.push(products[rand])
+    }
+
     dispatch({
       type: ActionTypes.PRODUCTS_GEN_FINISHED,
       payload: products,
@@ -164,6 +171,7 @@ export const addProducts = () => {
       newProducts,
       favProducts,
       bannerProducts,
+      trendProducts,
       size: products.length,
     })
   }
