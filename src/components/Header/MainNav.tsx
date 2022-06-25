@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { device } from '../../styles/device'
 import { Container, Row } from '../../styles/global'
 import Categories from './Categories'
@@ -17,12 +17,17 @@ const Bg = styled.div`
 `
 
 const Wrapper = styled.div`
+  position: relative;
   @media ${device.tablet} {
     background: #0e8ce4;
   }
 `
 
-const MainNav = () => {
+type Props = {
+  show: boolean;
+}
+
+const MainNav: React.FC<Props> = ({show}) => {
   const [showCat, setShowCat] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
 

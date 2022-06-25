@@ -172,9 +172,9 @@ const BannerMB = () => {
           }
         >
           <Card 
-            title={bannerProducts[0].params.brandArr.value } 
-            titleSpan={bannerProducts[0].params.modelArr.value} 
-            subtitle={paramsMB1} 
+            title={bannerProducts[0].params.brandArr.value}
+            titleSpan={bannerProducts[0].params.modelArr.value}
+            subtitle={paramsMB1}
             image={MBImage1}
           />
           <Card 

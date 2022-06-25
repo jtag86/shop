@@ -56,7 +56,6 @@ export const Row = styled.div<{justifyContent?: string}>`
   display: flex;
   justify-content: ${({justifyContent}) => (justifyContent?justifyContent: "space-between")};
   align-items: center;
-  height: 100%;
   width: 100%;
 `
 

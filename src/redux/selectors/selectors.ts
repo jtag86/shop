@@ -7,3 +7,7 @@ export const typeProductsSelector = (state: RootState, title: string) => {
 export const productSelector = (state: RootState, articul: string) => {
   return state.products.products?.filter(item => item.articul === articul).shift()
 }
+
+export const catalogSelector = (state: RootState, catalog: string) => {
+  return state.products.products?.filter(item => item.catalog === catalog)
+}

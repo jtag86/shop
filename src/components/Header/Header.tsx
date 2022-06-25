@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import HeaderMain from './HeaderMain'
-import MainNav from './MainNav'
 import TopBar from './TopBar'
 
 const Wrapper = styled.div`
@@ -14,7 +13,6 @@ const Header = () => {
     <Wrapper>
       <TopBar />
       <HeaderMain />
-      <MainNav />
     </Wrapper>
 
   )

@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import MenuIcon from '@mui/icons-material/Menu'
 import { device } from '../../styles/device'
+import { NavLink } from 'react-router-dom'
+import { CATALOG } from '../../utils/consts'
 
 const CatMenuContainer = styled.div`
   @media ${device.desktop} {
@@ -49,7 +51,6 @@ const CatMenuUl = styled.ul<{show: boolean}>`
     box-shadow: 0px 10px 25px rgb(0 0 0 / 10%);
     display: ${props => props.show ? "block" : "none"}
   }
-
 `
 
 const CatMenuLi = styled.li`
@@ -61,7 +62,7 @@ const CatMenuLi = styled.li`
   white-space: nowrap;
 `
 
-const CatMenua = styled.a`
+const StyledNavLink = styled(NavLink)`
   display: block;
   color: #FFFFFF;
   font-weight: 500;
@@ -83,12 +84,20 @@ const MenuV:React.FC<Props> = ({show, handleClickMenu}) => {
         <MenuIcon  style={{ color: "#FFF"}} />
       </CatMenuContainer>
       <CatMenuUl show={show}>
-          <CatMenuLi><CatMenua>Computers & Laptops</CatMenua></CatMenuLi>
-          <CatMenuLi><CatMenua>Computers & Laptops</CatMenua></CatMenuLi>
-          <CatMenuLi><CatMenua>Computers & Laptops</CatMenua></CatMenuLi>
-          <CatMenuLi><CatMenua>Computers & Laptops</CatMenua></CatMenuLi>
-          <CatMenuLi><CatMenua>Computers & Laptops</CatMenua></CatMenuLi>
-          <CatMenuLi><CatMenua>Computers & Laptops</CatMenua></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Материнские платы`}>Материнские платы</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Процессоры`}>Процессоры</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Оперативная память`}>Оперативная память</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Видеокарты`}>Видеокарты</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Жесткие диски`}>HDD</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/SSD диски`}>SSD</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Блоки питания`}>Блоки питания</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Корпуса`}>Корпуса</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Смартфоны`}>Смартфоны</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Телефоны`}>Телефоны</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Электронные книги`}>Электронные книги</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Чехлы для телефона`}>Чехлы для телефонов</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Моноподы`}>Моноподы</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={`/catalog/Зарядные устройства`}>Зарядные устройства</StyledNavLink></CatMenuLi>
       </CatMenuUl>
     </>
   )

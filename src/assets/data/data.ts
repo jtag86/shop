@@ -541,7 +541,7 @@ export const books = {
 }
 
 export const monopods = {
-  catalog: "Электронные книги",
+  catalog: "Моноподы",
   title: "Моноподы",
   cost: '100000',
   params: {
@@ -621,8 +621,8 @@ export const smartphones = {
 }
 
 export const pushButtonPhones = { 
-  catalog: "Моноподы",
-  title: "Монопод",
+  catalog: "Телефоны",
+  title: "Телефон",
   cost: '100000',
   params: {
     brandArr: {

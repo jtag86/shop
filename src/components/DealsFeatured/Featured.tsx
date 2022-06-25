@@ -51,7 +51,7 @@ const StyleText = styled.p`
   cursor: pointer;
   transition: all 200ms ease;
   @media ${device.mobileS} {
-    font-size: 14px;
+    font-size: 12px;
   }
 `
 
@@ -89,9 +89,11 @@ const Featured = () => {
 
   useEffect(() => {
     handleWidthCarousel()
-    setInterval(() => {
-      window.addEventListener('resize', handleWidthCarousel, { once: true });
-    }, 100)
+    window.addEventListener('resize', handleWidthCarousel);
+    return () => {
+      window.removeEventListener('resize', handleWidthCarousel);
+    }
+
   }, [])
 
   const leftRef  = useRef<HTMLLIElement>(null);
@@ -106,7 +108,8 @@ const Featured = () => {
 
   const [productTab, setProductTab] = useState(1)
   const [spanX, setSpanX] = useState(0)
-  const [spanWidth, setSpanWidth] = useState(122)
+  const [spanWidth, setSpanWidth] = useState(0)
+
 
   const handleClick = (value: number) => {
     switch(value){

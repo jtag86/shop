@@ -1,25 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { device } from '../../styles/device'
+import { Container } from '../../styles/global'
 
 const Wrapper = styled.div`
-  height: 100%;
-  width: 1170px;
-  margin: auto;
 
-  @media ${device.laptop} {
-    max-width: 972px;
-  }
-
-  @media ${device.tablet} {
-    width: 720px;
-  }
-  @media ${device.mobileL} {
-    max-width: 500px;
-  }
-  @media ${device.mobileS} {
-    max-width: 400px;
-  }
 `
 
 const Flex = styled.div`
@@ -36,20 +21,8 @@ const FlexRight = styled.div`
   flex: 0 0 30%;
 `
 
-const LeftWrapper = styled.div`
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 100px;
-`
-
-const Category = styled.p`
-  font-size: 12px;
-  color: rgba(0,0,0,0.5);
-`
 const Title = styled.p`
-  margin-top: 30px;
+  margin-top: 100px;
   font-size: 30px;
   font-weight: 500;
   @media ${device.tablet} {
@@ -97,6 +70,9 @@ const ImageWrapper = styled.div`
   @media ${device.tablet} {
     width: 200px;
   }
+  @media ${device.mobileS} {
+    width: 100px;
+  }
 `
 
 const Image = styled.img`
@@ -112,23 +88,24 @@ type Props = {
 }
 
 const Card: React.FC<Props> = ({title, titleSpan, subtitle, image}) => {
-  return <Wrapper>
-    <Flex>
-      <FlexLeft>
-        <LeftWrapper>
-          <Category>Материнская плата</Category>
-        </LeftWrapper>
-        <Title>{title}<br/> <TitleSpan>{titleSpan}</TitleSpan> </Title>
-        <Subtitle>{subtitle}</Subtitle>
-        <Button href='#'>Купить</Button>
-      </FlexLeft>
-      <FlexRight>
-        <ImageWrapper>
-          <Image src={image}/>
-        </ImageWrapper>
-      </FlexRight>
-    </Flex>
-  </Wrapper>
+  return (
+    <Container>
+      <Wrapper>
+        <Flex>
+          <FlexLeft>
+            <Title>{title}<br/> <TitleSpan>{titleSpan}</TitleSpan> </Title>
+            <Subtitle>{subtitle}</Subtitle>
+            <Button href='#'>Купить</Button>
+          </FlexLeft>
+          <FlexRight>
+            <ImageWrapper>
+              <Image src={image}/>
+            </ImageWrapper>
+          </FlexRight>
+        </Flex>
+      </Wrapper>
+    </Container>
+  )
 }
 
 export default Card

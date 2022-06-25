@@ -64,42 +64,40 @@ const BannerContent = styled.div`
   }
 `
 
-const BannerText = styled.h1`
-    font-size: 50px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    line-height: 1.166;
-    color: #7599b2;
-    text-transform: uppercase;
-    letter-spacing: 0.038em;
-    @media ${device.mobileL} {
-      font-size: 20px;
-    }
-`
-
-const BannerPrice = styled.div`
-  font-size: 30px;
-  color: #df3b3b;
-  margin-top: 87px;
+const BannerText = styled.p`
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.166;
+  color: #7599b2;
+  text-transform: uppercase;
+  letter-spacing: 0.038em;
   @media ${device.mobileL} {
     font-size: 20px;
-    margin-top: 30px;
+    margin-left: 20px;
   }
-  `
-
-const BannerDiscount = styled.span`
-  display: inline-block;
-  position: relative;
-  color: #7e8285;
-  margin-right: 14px;
-  text-decoration: line-through;
 `
 
-const BannerProductName = styled.div`
-  font-size: 18px;
-  font-weight: 400;
-  color: #000000;
-  margin-top: 8px;
+const BannerPrice = styled.p`
+  text-decoration: line-through;
+  color: #df3b3b;
+  margin-top: 87px;
+  font-size: 25px;
+  @media ${device.mobileL} {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+`
+
+const BannerDiscount = styled.span`
+  display: block;
+  position: relative;
+  color: #7e8285;
+  font-size: 30px;
+  @media ${device.mobileL} {
+    font-size: 20px;
+    margin-left: 20px;
+  }
 `
 
 const BannerButton = styled.div`
@@ -108,6 +106,9 @@ const BannerButton = styled.div`
   background: #0e8ce4;
   border-radius: 5px;
   height: 48px;
+  @media ${device.mobileL} {
+    margin-left: 20px;
+  }
 `
 const Button = styled(NavLink)`
   display: block;
@@ -130,11 +131,12 @@ const Banner = () => {
                   Новая эра смартфонов
                 </BannerText>
                 <BannerPrice>
-                  <BannerDiscount>
-                    150 000
-                  </BannerDiscount>
-                    &nbsp; 125 000
+                  150 000
                 </BannerPrice>
+                <BannerDiscount>
+                  125 000
+                </BannerDiscount>
+
                 <BannerButton >
                   <Button to="#">
                     Купить

@@ -1,142 +1,171 @@
 import React from 'react'
-import { Button, Link, TextField } from '@mui/material'
 import Box from '@mui/material/Box/Box'
 import Grid from '@mui/material/Grid/Grid'
 import Typography from '@mui/material/Typography/Typography'
-import ButtonBase from '@mui/material/ButtonBase'
-import { styled } from '@mui/material/styles'
-import { borderColor } from '@mui/system'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import YouTubeIcon from '@mui/icons-material/YouTube'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import TelegramIcon from '@mui/icons-material/Telegram'
-import RedditIcon from '@mui/icons-material/Reddit'
+import { Container } from '../../styles/global'
+import { FaFacebookF, FaInstagram, FaRedditAlien, FaTelegram, FaYoutube } from 'react-icons/fa'
+import styled from 'styled-components/macro'
+import { NavLink } from 'react-router-dom'
+
+const FooterMarketName = styled.h1`
+  font-size: 36px;
+  font-weight: 500;
+  color: #000000;
+`
+
+const FooterTitle = styled.h1`
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+`
+
+const FooterSubtitle = styled(NavLink)`
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0,0,0,0.4);
+  transition: all 200ms ease;
+  text-decoration: none;
+  text-shadow: rgb(0 0 0 / 1%) 0 0 1px;
+  margin-top: 10px;
+  &:hover {
+    color: #007bff;
+  }
+`
+
+const FooterSubtitle2 = styled.h1`
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+`
+
+const FooterSubtitle3 = styled.p`
+  font-size: 18px;
+  font-weight: 500;
+  color: #0e8ce4;
+  margin-top: 13px;
+`
+
+const FooterContact = styled.p`
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: #828282;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgb(0 0 0 / 1%) 0 0 1px;
+`
+
+const FooterSocial = styled.div`
+  width: 30px;
+  height: 30px;
+  background: #fafafa;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    color: #007bff;
+  }
+`
+
+const Wrapper = styled.div`
+  margin-left: 30px;
+  margin-right: 30px;
+`
+const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 30px;
+  flex-wrap: wrap;
+`
+
+const ColumnWrapper = styled.div`
+  margin: 10px;
+`
 
 const Footer = () => {
 
-  const CustomButton = styled(Button)({
-    color: '#bbb',
-    borderColor: "#ccc"
-  })
+  return (
+    <Container>
+      <Wrapper>
+        <Row>
+          <ColumnWrapper>
+            <FooterMarketName>Market</FooterMarketName>
+            <FooterSubtitle2>Есть вопрос? Звоните нам 24/7</FooterSubtitle2>
+            <FooterSubtitle3>+38 068 005 3570</FooterSubtitle3>
+            <FooterContact>17 Princess Road, London</FooterContact>
+            <FooterContact>Grester London NW18JR, UK</FooterContact>
+            <Row>
+              <FooterSocial>
+                <FaInstagram  fontSize={15}/>
+              </FooterSocial>
+              <FooterSocial>
+                <FaYoutube fontSize={15}/>
+              </FooterSocial>
+              <FooterSocial>
+                <FaTelegram fontSize={15}/>
+              </FooterSocial>
+              <FooterSocial>
+                <FaFacebookF fontSize={15}/>
+              </FooterSocial>
+              <FooterSocial>
+                <FaRedditAlien fontSize={15}/>
+              </FooterSocial>
+            </Row>
+          </ColumnWrapper>
 
-  const BoxProps = {
-    '&:hover': {border: "4px solid white"},  
-    boxSizing: 'border-box',
-    borderRadius: '50%', 
-    backgroundColor: '#66afe9', 
-    width: '50px', 
-    height: '50px',  
-    display: 'flex', 
-    justifyContent: 'center', 
-    alignItems: 'center'
-  }
+          <ColumnWrapper>
+            <FooterTitle>Интернет-магазин</FooterTitle>
+            <FooterSubtitle to="#">Оплата</FooterSubtitle>
+            <FooterSubtitle to="#">Доставка</FooterSubtitle>
+            <FooterSubtitle to="#">Кредитование</FooterSubtitle>
+            <FooterSubtitle to="#">Акции</FooterSubtitle>
+            <FooterSubtitle to="#">Отзывы</FooterSubtitle>
+            <FooterSubtitle to="#">Полезные рассылки</FooterSubtitle>
+            <FooterSubtitle to="#">Подарочные сертификаты</FooterSubtitle>
+            <FooterSubtitle to="#">Гарантийное обслуживание</FooterSubtitle>
+            <FooterSubtitle to="#">Юридическим лицам</FooterSubtitle>
+          </ColumnWrapper>
 
-  return (<>
-      <Box sx={{bgcolor: '#333'}}>
-        <Box mx="auto" p={5} sx={{width: '1400px'}}>
-          <Grid container  >
-            <Grid item xs={3}>
-              <Typography fontWeight='fontWeightBold' variant="h5" sx={{color: '#c8cece'}}>Интернет-магазин</Typography>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="">Оплата</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Доставка</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Кредитование</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Акции</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Отзывы</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Полезные рассылки</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Подарочные сертификаты</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Гарантийное обслуживание</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Юридическим лицам</Link></Box>
-            </Grid>
-            <Grid item xs={3}>
-              <Typography fontWeight='fontWeightBold' variant="h5" sx={{color: '#c8cece'}}>Помощь</Typography>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Как заказать</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Бонусная система</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Что такое Шопики</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Статусы заказов</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Вопросы и ответы</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Форум</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Конфигуратор компьютера</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Помощь в выборе смартфона</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Калькулятор блока питания</Link></Box>
-            </Grid>
-            <Grid item xs={3}>
-              <Typography fontWeight='fontWeightBold' variant="h5" sx={{color: '#c8cece'}}>Компания</Typography>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">О компании</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Прайс-листы</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Salem Sale</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Комиссионный магазин</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Вакансии</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Новости</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Гарантия надёжности</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Арендодателям</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Благотворительность</Link></Box>
-            </Grid>
-            <Grid item xs={3}>
-              <Typography fontWeight='fontWeightBold' variant="h5" sx={{color: '#c8cece'}}>Контакты</Typography>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Адреса и телефоны</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Написать нам</Link></Box>
-              <Box><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Telegram-бот</Link></Box>
-              <Box mb={1}><Link underline="hover" sx={{color: '#c8cece', fontSize: '18px'}} href="#">Узнайте о скидках и акциях первым!</Link></Box>
-              <TextField inputProps={{ style: { color: "white" } }} variant='standard' />
-              <CustomButton sx={{marginLeft: 1}} variant='outlined' color="info">ПОДПИСАТЬСЯ</CustomButton>
-              <Box mb={1}><Link underline="hover" sx={{color: '#c8cece', fontSize: '10px', lineHeight: '0.7'}} href="#">Нажимая на кнопку "Подписаться", я соглашаюсь с Политикой конфиденциальности</Link></Box>
-              <Box mr={4}>
-                <CustomButton fullWidth={true} variant='outlined' color="info">ПОДПИСАТЬСЯ НА УВЕДОМЛЕНИЯ</CustomButton>
-              </Box>
-              <Box m={2}>
-                <Typography sx={{color: '#c8cece', fontSize: '14px'}}>Давайте дружить в соцсетях!</Typography>
-              </Box>
-              <Box mr={4} sx={{display: 'flex', justifyContent: 'space-around'}}>
-                <Box 
-                  sx={{...BoxProps}}
-                >
-                  <InstagramIcon fontSize="large" />
-                </Box>
-                <Box 
-                  sx={{...BoxProps}}
-                >
-                  <YouTubeIcon fontSize="large" />
-                </Box>
-                <Box 
-                  sx={{...BoxProps}}
-                >
-                  <FacebookIcon fontSize="large" />
-                </Box>
-                <Box 
-                  sx={{...BoxProps}}
-                >
-                  <TelegramIcon fontSize="large" />
-                </Box>
-                <Box 
-                  sx={{...BoxProps}}
-                >
-                  <RedditIcon fontSize="large" />
-                </Box>
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
-      <Box sx={{bgcolor: '#222425'}}>
-        <Box mx="auto" p={5} sx={{width: '1400px'}}>
-          <Grid container>
-            <Grid item xs={4}>
-              <Typography sx={{color: '#c8cece', fontSize: '14px'}}>© 2007—2022 </Typography>
-              <Typography sx={{color: '#c8cece', fontSize: '10px'}}>Интернет-площадка. Бытовая и компьютерная техника, комплектующие, ноутбуки, смартфоны и аксессуары в гг. Алматы, Нур-Султан (Астана) и других городах Казахстана. Публичный договор   Политика конфиденциальности  Карта сайта</Typography>
-            </Grid>
-            <Grid item xs={4}>
-              <Typography sx={{color: '#c8cece', fontSize: '18px', display: 'flex', justifyContent: 'center'}}>Мы доставили заказов</Typography>
-              <Typography sx={{color: '#c8cece', fontSize: '40px', display: 'flex', justifyContent: 'center'}}>1 245 784</Typography>
-
-            </Grid>
-            <Grid item xs={4}>
-              <Typography sx={{color: '#c8cece', fontSize: '14px', display: 'flex', justifyContent: 'center'}}>Читайте отзывы покупателей и оценивайте качество магазина на Яндекс.Маркете</Typography>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
-    </>
+          <ColumnWrapper>
+            <FooterTitle>Помощь</FooterTitle>
+            <FooterSubtitle to="#">Как заказать</FooterSubtitle>
+            <FooterSubtitle to="#">Бонусная система</FooterSubtitle>
+            <FooterSubtitle to="#">Что такое Шопики</FooterSubtitle>
+            <FooterSubtitle to="#">Статусы заказов</FooterSubtitle>
+            <FooterSubtitle to="#">Вопросы и ответы</FooterSubtitle>
+            <FooterSubtitle to="#">Форум</FooterSubtitle>
+            <FooterSubtitle to="#">Конфигуратор компьютера</FooterSubtitle>
+            <FooterSubtitle to="#">Помощь в выборе смартфона</FooterSubtitle>
+            <FooterSubtitle to="#">Калькулятор блока питания</FooterSubtitle>
+          </ColumnWrapper>
+        </Row>
+      </Wrapper>
+    </Container>
   )
 }
 
 export default Footer
+
+{/* <Box sx={{bgcolor: '#222425'}}>
+<Box mx="auto" p={5} sx={{width: '1400px'}}>
+  <Grid container>
+    <Grid item xs={4}>
+      <Typography sx={{color: '#c8cece', fontSize: '14px'}}>© 2007—2022 </Typography>
+      <Typography sx={{color: '#c8cece', fontSize: '10px'}}>Интернет-площадка. Бытовая и компьютерная техника, комплектующие, ноутбуки, смартфоны и аксессуары в гг. Алматы, Нур-Султан (Астана) и других городах Казахстана. Публичный договор   Политика конфиденциальности  Карта сайта</Typography>
+    </Grid>
+    <Grid item xs={4}>
+      <Typography sx={{color: '#c8cece', fontSize: '18px', display: 'flex', justifyContent: 'center'}}>Мы доставили заказов</Typography>
+      <Typography sx={{color: '#c8cece', fontSize: '40px', display: 'flex', justifyContent: 'center'}}>1 245 784</Typography>
+
+    </Grid>
+    <Grid item xs={4}>
+      <Typography sx={{color: '#c8cece', fontSize: '14px', display: 'flex', justifyContent: 'center'}}>Читайте отзывы покупателей и оценивайте качество магазина на Яндекс.Маркете</Typography>
+    </Grid>
+  </Grid>
+</Box>
+</Box> */}
