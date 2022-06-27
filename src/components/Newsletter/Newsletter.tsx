@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import image from '../../assets/img/send.png'
 import { Container } from '../../styles/global'
-import Form from '../Footer/Form'
+import Form from './Form'
 
 const Wrapper = styled.div`
   width: 100%;

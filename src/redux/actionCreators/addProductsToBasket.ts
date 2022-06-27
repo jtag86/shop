@@ -1,6 +1,6 @@
 import { ActionBasketTypes } from "../actionTypes/actionBasketTypes";
-import { IProducts } from "../reducers/basketReducer";
-export const addProductsToBasket = (payload: IProducts) => ({
+import { IProducts, Item } from "../reducers/basketReducer";
+export const addProductsToBasket = (payload: Item) => ({
   type: ActionBasketTypes.ADD_PRODUCT_TO_BASKET,
   payload
 })

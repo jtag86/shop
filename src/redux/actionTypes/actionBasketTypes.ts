@@ -1,4 +1,4 @@
-import { IProducts } from "../reducers/productsReducer";
+import { IProducts, Item } from "../reducers/basketReducer";
 
 export enum ActionBasketTypes {
   ADD_PRODUCT_TO_BASKET = 'ADD_PRODUCT_TO_BASKET',
@@ -7,7 +7,7 @@ export enum ActionBasketTypes {
 
 interface actionBasketAdd {
   type: ActionBasketTypes.ADD_PRODUCT_TO_BASKET,
-  payload: IProducts
+  payload: Item
 }
 
 interface actionBasketRemove {

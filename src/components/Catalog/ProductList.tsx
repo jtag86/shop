@@ -76,6 +76,25 @@ const MyPaginate = styled(ReactPaginate).attrs({
   }
 `;
 
+const ShopBar = styled.div`
+  display: flex;
+  align-items: center;
+  span {
+    color: #0e8ce4;
+  }
+`
+
+const ShopProductCount = styled.div`
+  font-size: 14px;
+  font-weight: 500;
+  span {
+    color: #0e8ce4;
+  }
+`
+
+const Wrapper = styled.div`
+
+`
 
 type Props = {
   products: IProducts[]
@@ -111,7 +130,14 @@ const ProductList: React.FC<Props> = ({products}) => {
  
 
   return (
-    <>
+    <Wrapper>
+      <ShopBar>
+        <ShopProductCount>
+          <span>{products.length}</span>
+           товаров найдено
+        </ShopProductCount>
+      </ShopBar>
+
       <MyPaginate
         previousLabel={<FaChevronLeft fontSize={14} />}
         nextLabel={<FaChevronRight fontSize={14} />}
@@ -124,7 +150,7 @@ const ProductList: React.FC<Props> = ({products}) => {
         containerClassName="pagination"
         activeClassName="active"
       />
-    </>
+    </Wrapper>
   );
 }
 

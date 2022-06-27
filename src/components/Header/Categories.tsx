@@ -5,6 +5,7 @@ import { device } from '../../styles/device'
 import { NavLink } from 'react-router-dom'
 
 const Wrapper = styled.div`
+  z-index: 10;
   width: 260px;
   height: 60px;
   background: #0e8ce4;

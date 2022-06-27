@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { device } from '../../styles/device'
-
+import Snackbar from '@mui/material/Snackbar'
 
 const StyledForm = styled.form`
   width: 600px;
@@ -65,7 +65,7 @@ const NewsletterUnsubscribe = styled.div`
     margin-left: 0px;
   }
 `
-const NewsletterUnsubscribeLink = styled(NavLink)`
+const NewsletterUnsubscribeLink = styled.div`
   font-size: 10px;
   color: #0e8ce4;
   font-weight: 500;
@@ -88,14 +88,34 @@ const Row = styled.div`
 
 const Form = () => {
   const [name, setName] = useState("");
+  const [openSubscribe, setOpenSubscribe] = React.useState(false);
+  const [openUnsubscribe, setOpenUnsubscribe] = React.useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleClick  = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    alert(`The name you entered was: ${name}`)
+	setOpenSubscribe(true);
   }
+  const handleClick2  = (event: React.MouseEvent) => {
+    event.preventDefault();
+	setOpenUnsubscribe(true);
+  }
+  
+	const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
+		if (reason === 'clickaway') {
+		  return;
+		}
+		setOpenSubscribe(false);
+	};
+	
+	const handleClose2 = (event: React.SyntheticEvent | Event, reason?: string) => {
+		if (reason === 'clickaway') {
+		  return;
+		}
+		setOpenUnsubscribe(false);
+	};
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleClick }>
       <Row>
         <Input 
           type="text" 
@@ -104,9 +124,21 @@ const Form = () => {
         />
         <Submit type="submit" value="Подписаться" />
         <NewsletterUnsubscribe>
-          <NewsletterUnsubscribeLink to="#">отписаться</NewsletterUnsubscribeLink>
+          <NewsletterUnsubscribeLink onClick={e => handleClick2(e)} >отписаться</NewsletterUnsubscribeLink>
         </NewsletterUnsubscribe>
       </Row>
+	  <Snackbar
+        open={openSubscribe}
+        autoHideDuration={2000}
+		onClose={handleClose}
+        message={"Подписка оформлена"}
+      />
+	  <Snackbar
+        open={openUnsubscribe}
+        autoHideDuration={2000}
+		onClose={handleClose2}
+        message={"Вы отписались"}
+      />
     </StyledForm>
   )
 }

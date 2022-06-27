@@ -8,14 +8,16 @@ import Copyright from './components/Copyright/Copyright';
 
 const App = () => {
   return (
-    <div className="App">
-      <GlobalStyle />
-      <Header />
-      <AppRouters />
-      <Newsletter />
-      <Footer />
-      <Copyright />
-    </div>
+
+		<div className="App">
+		  <GlobalStyle />
+		  <Header />
+		  <AppRouters />
+		  <Newsletter />
+		  <Footer />
+		  <Copyright />
+		</div>
+
   );
 }
 

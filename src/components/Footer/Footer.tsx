@@ -1,7 +1,4 @@
 import React from 'react'
-import Box from '@mui/material/Box/Box'
-import Grid from '@mui/material/Grid/Grid'
-import Typography from '@mui/material/Typography/Typography'
 import { Container } from '../../styles/global'
 import { FaFacebookF, FaInstagram, FaRedditAlien, FaTelegram, FaYoutube } from 'react-icons/fa'
 import styled from 'styled-components/macro'
@@ -150,22 +147,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-{/* <Box sx={{bgcolor: '#222425'}}>
-<Box mx="auto" p={5} sx={{width: '1400px'}}>
-  <Grid container>
-    <Grid item xs={4}>
-      <Typography sx={{color: '#c8cece', fontSize: '14px'}}>© 2007—2022 </Typography>
-      <Typography sx={{color: '#c8cece', fontSize: '10px'}}>Интернет-площадка. Бытовая и компьютерная техника, комплектующие, ноутбуки, смартфоны и аксессуары в гг. Алматы, Нур-Султан (Астана) и других городах Казахстана. Публичный договор   Политика конфиденциальности  Карта сайта</Typography>
-    </Grid>
-    <Grid item xs={4}>
-      <Typography sx={{color: '#c8cece', fontSize: '18px', display: 'flex', justifyContent: 'center'}}>Мы доставили заказов</Typography>
-      <Typography sx={{color: '#c8cece', fontSize: '40px', display: 'flex', justifyContent: 'center'}}>1 245 784</Typography>
-
-    </Grid>
-    <Grid item xs={4}>
-      <Typography sx={{color: '#c8cece', fontSize: '14px', display: 'flex', justifyContent: 'center'}}>Читайте отзывы покупателей и оценивайте качество магазина на Яндекс.Маркете</Typography>
-    </Grid>
-  </Grid>
-</Box>
-</Box> */}
