@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 	justify-content: center;
 	width: 170px;
 	padding-top: 40px;
-    padding-bottom: 24px;
+	padding-bottom: 24px;
 
 	text-align: center;
 `
@@ -36,9 +36,9 @@ const ProductContent = styled.div`
 `
 
 const ProductPrice = styled.div`
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 25px;
+	font-size: 16px;
+	font-weight: 500;
+	margin-top: 25px;
 	width: 100%;
 `
 
@@ -47,9 +47,9 @@ const ProductName = styled(NavLink)`
 	display: inline-block;
 	width: 90%;
 	font-size: 14px;
-    font-weight: 400;
-    color: #000000;
-    white-space: nowrap;
+	font-weight: 400;
+	color: #000000;
+	white-space: nowrap;
 	text-decoration: none;
 	white-space: nowrap;
 	overflow: hidden;

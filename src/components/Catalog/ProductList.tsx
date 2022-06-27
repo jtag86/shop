@@ -8,6 +8,11 @@ import { Row } from '../../styles/global'
 import styled from 'styled-components';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+const Wrapper = styled.div`
+  width: 100%;
+  margin-top: 40px;
+`
+
 const MyPaginate = styled(ReactPaginate).attrs({
   // You can redifine classes here, if you want.
   activeClassName: 'active', // default to "disabled"
@@ -16,7 +21,6 @@ const MyPaginate = styled(ReactPaginate).attrs({
   display: flex;
   flex-direction: row;
   list-style-type: none;
-  padding: 0 5rem;
   height: 48px;
   box-sizing: border-box;
   li {
@@ -79,6 +83,8 @@ const MyPaginate = styled(ReactPaginate).attrs({
 const ShopBar = styled.div`
   display: flex;
   align-items: center;
+  border-bottom: solid 1px #dadada;
+  padding-bottom: 14px;
   span {
     color: #0e8ce4;
   }
@@ -87,14 +93,20 @@ const ShopBar = styled.div`
 const ShopProductCount = styled.div`
   font-size: 14px;
   font-weight: 500;
+  margin-left: 40px;
   span {
     color: #0e8ce4;
   }
 `
 
-const Wrapper = styled.div`
-
+const ShopContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 `
+
+
 
 type Props = {
   products: IProducts[]
@@ -102,8 +114,8 @@ type Props = {
 
 const ProductList: React.FC<Props> = ({products}) => {
 
-  const itemsPerPage = 10
-  const [currentItems, setCurrentItems] = useState<IProducts[]>([])
+  const itemsPerPage = 20
+  const [currentProducts, setCurrentProducts] = useState<IProducts[]>([])
 
   const [pageCount, setPageCount] = useState(0)
   const [itemOffset, setItemOffset] = useState(0)
@@ -111,13 +123,15 @@ const ProductList: React.FC<Props> = ({products}) => {
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage
     console.log(`Loading items from ${itemOffset} to ${endOffset}`)
-    setCurrentItems(products.slice(itemOffset, endOffset))
+    setCurrentProducts(products.slice(itemOffset, endOffset))
     setPageCount(Math.ceil(products.length / itemsPerPage))
-  }, [itemOffset, itemsPerPage])
+  }, [itemOffset, itemsPerPage, products])
 
   type EventProps = {
     selected: number
   }
+
+  
 
   const handlePageClick = (event: EventProps) => {
     const newOffset = (event.selected * itemsPerPage) % products.length;
@@ -134,16 +148,22 @@ const ProductList: React.FC<Props> = ({products}) => {
       <ShopBar>
         <ShopProductCount>
           <span>{products.length}</span>
-           товаров найдено
+           &nbsp;товаров найдено
         </ShopProductCount>
       </ShopBar>
-
+      <ShopContent>
+        {
+          currentProducts.map(item => (
+            <ProductItem key={item.articul} item={item} />
+          ))
+        }
+      </ShopContent>
       <MyPaginate
         previousLabel={<FaChevronLeft fontSize={14} />}
         nextLabel={<FaChevronRight fontSize={14} />}
         breakLabel="..."
         breakClassName="break-me"
-        pageCount={20}
+        pageCount={pageCount}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}

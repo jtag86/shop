@@ -58,15 +58,14 @@ const BgTitle = styled.h2`
 
 const Row = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	@media ${device.tablet} {
 		flex-wrap: wrap;
-		justify-content: center;
-    }
+	}
 `
 
 const Sidebar = styled.div`
-	width: 100%;
+	flex: 0 0 20%;
 	margin-left: 40px;
 `
 
@@ -74,7 +73,7 @@ const SidebarSection = styled.div``
 
 const SidebarTitle = styled.div`
 	font-size: 18px;
-    font-weight: 500;
+	font-weight: 500;
 `
 
 const SidebarCategories = styled.div`
@@ -114,36 +113,36 @@ const Catalog = () => {
         {products[0].catalog}
       </BgTitle>
     </BgWrapper>
-	<Wrapper>
-		<Container>
-			<Row>
-				<Sidebar>
-					<SidebarSection>
-						<SidebarTitle>
-							Категории
-						</SidebarTitle>
-						<SidebarCategories>
-							<StyledNavLink to={`/catalog/Материнские платы`}>Материнские платы</StyledNavLink>
-							<StyledNavLink to={`/catalog/Процессоры`}>Процессоры</StyledNavLink>
-							<StyledNavLink to={`/catalog/Оперативная память`}>Оперативная память</StyledNavLink>
-							<StyledNavLink to={`/catalog/Видеокарты`}>Видеокарты</StyledNavLink>
-							<StyledNavLink to={`/catalog/Жесткие диски`}>HDD</StyledNavLink>
-							<StyledNavLink to={`/catalog/SSD диски`}>SSD</StyledNavLink>
-							<StyledNavLink to={`/catalog/Блоки питания`}>Блоки питания</StyledNavLink>
-							<StyledNavLink to={`/catalog/Корпуса`}>Корпуса</StyledNavLink>
-							<StyledNavLink to={`/catalog/Смартфоны`}>Смартофны</StyledNavLink>
-							<StyledNavLink to={`/catalog/Телефоны`}>Телефоны</StyledNavLink>
-							<StyledNavLink to={`/catalog/Электронные книги`}>Электронные книги</StyledNavLink>
-							<StyledNavLink to={`/catalog/Чехлы для телефона`}>Чехлы для телефонов</StyledNavLink>
-							<StyledNavLink to={`/catalog/Моноподы`}>Монопод</StyledNavLink>
-							<StyledNavLink to={`/catalog/Зарядные устройства`}>Зарядные устройства</StyledNavLink>
-						</SidebarCategories>
-					</SidebarSection>
-				</Sidebar>
-				<ProductList products={products} />
-			</Row>
-		</Container>
-	</Wrapper>
+		<Wrapper>
+			<Container>
+				<Row>
+					<Sidebar>
+						<SidebarSection>
+							<SidebarTitle>
+								Категории
+							</SidebarTitle>
+							<SidebarCategories>
+								<StyledNavLink to={`/catalog/Материнские платы`}>Материнские платы</StyledNavLink>
+								<StyledNavLink to={`/catalog/Процессоры`}>Процессоры</StyledNavLink>
+								<StyledNavLink to={`/catalog/Оперативная память`}>Оперативная память</StyledNavLink>
+								<StyledNavLink to={`/catalog/Видеокарты`}>Видеокарты</StyledNavLink>
+								<StyledNavLink to={`/catalog/Жесткие диски`}>HDD</StyledNavLink>
+								<StyledNavLink to={`/catalog/SSD диски`}>SSD</StyledNavLink>
+								<StyledNavLink to={`/catalog/Блоки питания`}>Блоки питания</StyledNavLink>
+								<StyledNavLink to={`/catalog/Корпуса`}>Корпуса</StyledNavLink>
+								<StyledNavLink to={`/catalog/Смартфоны`}>Смартофны</StyledNavLink>
+								<StyledNavLink to={`/catalog/Телефоны`}>Телефоны</StyledNavLink>
+								<StyledNavLink to={`/catalog/Электронные книги`}>Электронные книги</StyledNavLink>
+								<StyledNavLink to={`/catalog/Чехлы для телефона`}>Чехлы для телефонов</StyledNavLink>
+								<StyledNavLink to={`/catalog/Моноподы`}>Монопод</StyledNavLink>
+								<StyledNavLink to={`/catalog/Зарядные устройства`}>Зарядные устройства</StyledNavLink>
+							</SidebarCategories>
+						</SidebarSection>
+					</Sidebar>
+					<ProductList products={products} />
+				</Row>
+			</Container>
+		</Wrapper>
   </>
   )
 } 
