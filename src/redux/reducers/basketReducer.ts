@@ -36,21 +36,18 @@ export const basketReducer = (state = initializeState, action: ActionBasket): IS
 			if(index !== -1) {
 				console.log("Надено совпадение")
 				const newArray = [...state.items]
-				newArray[index] = action.payload
-				console.log(index)
+				
+				const count = newArray[index].count + action.payload.count
+				newArray[index].count = count
+				return {
+					items: [...newArray]
+				}
 			}
-			
-
-			
 			
 			return {
-				items: []
+				items: [...state.items, action.payload]
 			}
 		}
-	
-		//
-		
-        //items: [...state.items, {product: action.payload.product, count: action.payload.count }]
 
     case ActionBasketTypes.REMOVE_PRODUCT_FROM_BASKET: 
       //const temp = state.products.filter(item => item.articul !== action.payload)

@@ -129,7 +129,6 @@ const Form: React.FC<Props> = ({product}) => {
 	const handleClick  = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		dispatch(addProductsToBasket({product: product, count: quantity}))
-		console.log("il")
 	}
 	
 	const [quantity, setQuantity] = useState(1)
