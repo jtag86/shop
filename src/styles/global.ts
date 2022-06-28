@@ -17,6 +17,7 @@ export const Container = styled.div`
   max-width: 1170px;
   margin-right: auto;
   margin-left: auto;
+  padding: 10px;
   
   @media ${device.laptop} {
     max-width: 992px;

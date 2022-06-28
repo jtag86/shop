@@ -7,15 +7,18 @@ export interface IProducts {
 
 export interface Item {
 	product: IProducts,
-	count: number
+	count: number,
+	totalCost: number,
 }
 
 interface IState {
   items: Item[],
+	basketCost: number
 }
 
 const initializeState: IState = {
-  items: []
+  items: [],
+	basketCost: 0
 }
 
 export const basketReducer = (state = initializeState, action: ActionBasket): IState => {
@@ -23,36 +26,55 @@ export const basketReducer = (state = initializeState, action: ActionBasket): IS
     case ActionBasketTypes.ADD_PRODUCT_TO_BASKET:
 		if(state.items.length === 0) {
 			console.log("Корзина пуста")
+			const cost = action.payload.count * action.payload.product.cost
 			return {
-				items: [action.payload]
+				items: [{
+					product: action.payload.product,
+					count: action.payload.count,
+					totalCost: cost
+				}],
+				basketCost: cost
 			}
 			
 		} else {
-			const index = state.items.findIndex(item => {
-				console.log(item.product.articul, action.payload.product.articul)
-				return item.product.articul === action.payload.product.articul
-			})
+			const index = state.items.findIndex(item => item.product.articul === action.payload.product.articul)
 			
 			if(index !== -1) {
-				console.log("Надено совпадение")
 				const newArray = [...state.items]
 				
 				const count = newArray[index].count + action.payload.count
+				const cost = count * newArray[index].product.cost
 				newArray[index].count = count
+				newArray[index].totalCost = cost
 				return {
-					items: [...newArray]
+					items: [...newArray],
+					basketCost: state.basketCost + action.payload.count * action.payload.product.cost
 				}
 			}
 			
 			return {
-				items: [...state.items, action.payload]
+				items: [
+					...state.items, 
+					{
+						product: action.payload.product,
+						count: action.payload.count,
+						totalCost: action.payload.count * action.payload.product.cost
+					}
+				],
+				basketCost: state.basketCost + action.payload.count * action.payload.product.cost
 			}
 		}
 
     case ActionBasketTypes.REMOVE_PRODUCT_FROM_BASKET: 
+			const index = state.items.findIndex(item => item.product.articul === action.payload.product.articul)
+
       //const temp = state.products.filter(item => item.articul !== action.payload)
       return {
-        items: []
+        items: [
+					...state.items.slice(0, index),
+					...state.items.slice(index + 1)
+				],
+				basketCost: state.basketCost - action.payload.count * action.payload.product.cost
       }
     default: 
       return state
