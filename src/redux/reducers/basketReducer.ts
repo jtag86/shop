@@ -25,7 +25,7 @@ export const basketReducer = (state = initializeState, action: ActionBasket): IS
   switch(action.type) {
     case ActionBasketTypes.ADD_PRODUCT_TO_BASKET:
 		if(state.items.length === 0) {
-			const cost = action.payload.count * action.payload.product.cost
+ 			const cost = action.payload.count * action.payload.product.cost
 			return {
 				items: [{
 					product: action.payload.product,

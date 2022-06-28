@@ -130,7 +130,7 @@ const Form = () => {
 	  <Snackbar
         open={openSubscribe}
         autoHideDuration={2000}
-		onClose={handleClose}
+		    onClose={handleClose}
         message={"Подписка оформлена"}
       />
 	  <Snackbar

@@ -5,6 +5,9 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { device } from '../../styles/device'
 import { Container, Title, Row } from '../../styles/global';
+import { useAppSelector } from '../../hooks/hook';
+import { NavLink } from 'react-router-dom';
+import { REGISTRATION } from '../../utils/consts';
 
 const Bg = styled.div`
   background-color: #FAFAFA;
@@ -35,7 +38,20 @@ const VerticalLine = styled.div`
   margin: 10px;
 `
 
+const StyledLink = styled(NavLink)`
+  font-size: clamp(0.5rem, 2vw, 1.2rem);
+  color: #000;
+  line-height: 1.06;
+  text-align: center;
+  width: '100%';
+  text-decoration: none;
+
+`
+
 const TopBar = () => {
+
+  const { auth } = useAppSelector(state => state.auth)
+
   return (
     <Bg>
       <Container>
@@ -56,10 +72,17 @@ const TopBar = () => {
             <Row>
               <Row>
                 <StyledPermIdentityIcon />
-                <Title>Register</Title>
+                {
+                  auth
+                  ?<Title>Name</Title>
+                  :(
+                    <StyledLink to={REGISTRATION}>Регистрация</StyledLink>
+                  )
+                }
+                
               </Row>
               <VerticalLine />
-              <Title>Sign in</Title>
+              <Title>Войти</Title>
             </Row>
           </Row>
         </Wrapper>
