@@ -102,8 +102,6 @@ const Catalog = () => {
   const {category} = useParams()
   const products = useAppSelector(state => catalogSelector(state, category!))
 
-  console.log(products[0])
-
   return (<>
     <MainNav show={false} />
     <BgWrapper>

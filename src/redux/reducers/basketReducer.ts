@@ -25,7 +25,6 @@ export const basketReducer = (state = initializeState, action: ActionBasket): IS
   switch(action.type) {
     case ActionBasketTypes.ADD_PRODUCT_TO_BASKET:
 		if(state.items.length === 0) {
-			console.log("Корзина пуста")
 			const cost = action.payload.count * action.payload.product.cost
 			return {
 				items: [{
@@ -67,8 +66,6 @@ export const basketReducer = (state = initializeState, action: ActionBasket): IS
 
     case ActionBasketTypes.REMOVE_PRODUCT_FROM_BASKET: 
 			const index = state.items.findIndex(item => item.product.articul === action.payload.product.articul)
-
-      //const temp = state.products.filter(item => item.articul !== action.payload)
       return {
         items: [
 					...state.items.slice(0, index),

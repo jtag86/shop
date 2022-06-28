@@ -46,8 +46,7 @@ const Text = styled.div`
 
 const WishlistCard = () => {
   const { basketCost } = useAppSelector(state => state.basket)
-
-
+  const { wishes } = useAppSelector(state => state.wishes)
 
   return (
   <Wrapper>
@@ -56,7 +55,7 @@ const WishlistCard = () => {
         <StyledHeart fontSize="large" />
         <Column>
           <WishListTitle>Желания</WishListTitle>
-          <Text>115</Text>
+          <Text>{wishes}</Text>
         </Column>
       </Row>
       <StyledNavLink to={BASKET}>

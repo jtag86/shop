@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import styled from 'styled-components/macro'
-import { FaAngleUp } from "react-icons/fa"
+import { FaAngleUp, FaHeart } from "react-icons/fa"
 import { FaAngleDown } from "react-icons/fa"
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 import { addProductsToBasket } from '../../redux/actionCreators/addProductsToBasket'
 import { IProducts } from '../../redux/reducers/basketReducer'
+import { Row } from '../../styles/global'
 const StyledForm = styled.form`
 	
 `
@@ -104,19 +105,42 @@ const ButtonWrapper = styled.div`
 
 const ProductButton = styled.input`
 	display: inline-block;
-    border: none;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 48px;
-    color: #FFFFFF;
-    padding-left: 35px;
-    padding-right: 35px;
-    outline: none;
-    cursor: pointer;
+	border: none;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 48px;
+	color: #FFFFFF;
+	padding-left: 35px;
+	padding-right: 35px;
+	outline: none;
+	cursor: pointer;
 	background: #0e8ce4;
-    border-radius: 5px;
-    height: 48px;
+	border-radius: 5px;
+	height: 48px;
 	transition: all 200ms ease;
+`
+
+const Fav = styled.div`
+	margin-top: 43px;
+	width: 50px;
+	height: 50px;
+	background: #FFFFFF;
+	box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
+	border-radius: 50%;
+	text-align: center;
+	cursor: pointer;
+	margin-left: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`
+
+const RedFav = styled(FaHeart)`
+	color: red;
+`
+
+const GrayFav = styled(FaHeart)`
+	color: gray;
 `
 
 type Props = {
@@ -126,6 +150,8 @@ type Props = {
 const Form: React.FC<Props> = ({product}) => {
 	const dispatch: Dispatch<any> = useDispatch()
 	
+	const [showFav, setShowFav] = useState(false)
+
 	const handleClick  = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		dispatch(addProductsToBasket({product: product, count: quantity}))
@@ -142,6 +168,10 @@ const Form: React.FC<Props> = ({product}) => {
 		const value = quantity - 1
 		setQuantity(value)
 	}
+
+	const handleClickFav = () => {
+		setShowFav(!showFav)
+	}
 	
 	return (
 		<StyledForm onSubmit={handleClick}>
@@ -157,12 +187,22 @@ const Form: React.FC<Props> = ({product}) => {
 					</QuantityDec>
 				</QuantityButtons>
 			</ProductQuantity>
-			<ProductPrice>
-				{product.cost}
-			</ProductPrice>
-			<ButtonWrapper>
-				<ProductButton type="submit" value="Добавить в корзину" />
-			</ButtonWrapper>
+				<ProductPrice>
+					{product.cost}₸
+				</ProductPrice>
+
+			<Row>
+				<ButtonWrapper>
+					<ProductButton type="submit" value="Добавить в корзину" />
+				</ButtonWrapper>
+				<Fav onClick={handleClickFav}>
+					{
+						showFav 
+						? <RedFav fontSize={25}/>
+						: <GrayFav fontSize={25} />
+					}
+				</Fav>
+			</Row>
 		</StyledForm>
 	)
 }

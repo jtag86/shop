@@ -24,6 +24,8 @@ interface actionGen {
   size: number
 }
 
+
+
 interface actionReset {
   type: ActionTypes.PRODUCTS_RESET,
   payload: Array<IProducts>,

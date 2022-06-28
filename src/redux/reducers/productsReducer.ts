@@ -17,7 +17,8 @@ interface IState {
   bannerProducts: IProducts[],
   trendProducts: IProducts[],
   error: string | null,
-  size: number
+  size: number,
+  wishes: number
 }
 
 const initializeState: IState = {
@@ -31,7 +32,8 @@ const initializeState: IState = {
   bannerProducts: [],
   trendProducts: [],
   error: null,
-  size: 0
+  size: 0,
+  wishes: 0
 }
 
 export const productsReducer = (state = initializeState, action: Action):IState => {
@@ -48,7 +50,8 @@ export const productsReducer = (state = initializeState, action: Action):IState 
         bannerProducts: [],
         trendProducts: [],
         size: 0,
-        error: ""
+        error: "",
+        wishes: 0
       }
 
     case ActionTypes.PRODUCTS_GEN_FINISHED:
@@ -63,7 +66,8 @@ export const productsReducer = (state = initializeState, action: Action):IState 
         bannerProducts: action.bannerProducts,
         trendProducts: action.trendProducts,
         size: action.size,
-        error: ""
+        error: "",
+        wishes: 15
       }
     case ActionTypes.PRODUCTS_RESET:
       return {
@@ -77,7 +81,8 @@ export const productsReducer = (state = initializeState, action: Action):IState 
         bannerProducts: [],
         trendProducts: [],
         size: 0,
-        error: ""
+        error: "",
+        wishes: 0
       }
     default:
       return state
