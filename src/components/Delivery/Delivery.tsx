@@ -1,25 +1,41 @@
 import { Typography } from '@mui/material'
-import { Box, Button } from '@mui/material'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import deliv from '../../assets/img/deliv.jpg'
-import Header from '../Header/Header'
-import { MAIN } from '../../utils/consts'
+import { Container, Heading } from '../../styles/global'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  margin-top: 50px;
+  margin-bottom: 50px;
+`
+
+const Title = styled.h4`
+  font-size: 30px;
+  text-align: center;
+`
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+`
+
+const Image = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`
 
 const Delivery = () => {
   return (
-    <Box>
-      <Header />
-      <NavLink style={{ textDecoration: 'none' }} to={MAIN}>
-        <Box ml={10} sx={{fontSize: '24px'}}>
-          <Button>На главную</Button>
-        </Box>
-      </NavLink>
-      <Box m={3} p={3}>
-        <Typography sx={{margin: '50px'}} variant="h4">Способы доставки</Typography>
-        <Box sx={{display: 'flex', justifyContent: 'center'}}>
-          <img src={deliv} />
-        </Box>
+    <Container>
+      <Wrapper>
+        <ImageWrapper>
+          <Image src={deliv} />
+        </ImageWrapper>
+        <Heading>Способы доставки</Heading>
         <ul>
           <li style={{padding: '10px'}}>
           <strong>Самовывоз</strong> – получение товара в пункте самовывоза. Срок резерва - 5 дней поcле смены статуса на «Доступен»
@@ -60,8 +76,8 @@ const Delivery = () => {
             * в случае приобретения комплектующих и необходимости их сборки требуется предоплата.
           </li>
         </ul>
-      </Box>
-    </Box>
+      </Wrapper>
+    </Container>
   )
 }
 

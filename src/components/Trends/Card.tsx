@@ -1,7 +1,12 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { IProducts } from '../../redux/reducers/productsReducer'
 import { Column, Row } from '../../styles/global'
+
+const StyledLink = styled(NavLink)`
+  text-decoration: none;
+`
 
 const Wrapper = styled.div`
   background: #FFFFFF;
@@ -47,6 +52,7 @@ const TrendsPrice = styled.div`
   font-size: 16px;
   font-weight: 500;
   float: right;
+  color: #666;
 `
 
 
@@ -56,20 +62,23 @@ type Props = {
 
 const Card:React.FC<Props> = ({item}) => {
   return (
-    <Wrapper>
-      <Column>
-        <ImageWrapper>
-          <Image src={item.titleImage} />
-        </ImageWrapper>
+    <StyledLink to={`/product/${item.articul}`}>
+      <Wrapper >
         <Column>
-          <TrendCategory>{item.catalog}</TrendCategory>
-          <Row>
-            <TrendName>{item.params.modelArr.value}</TrendName>
-            <TrendsPrice>{item.cost}</TrendsPrice>
-          </Row>
+          <ImageWrapper>
+            <Image src={item.titleImage} />
+          </ImageWrapper>
+          <Column>
+            <TrendCategory>{item.catalog}</TrendCategory>
+            <Row>
+              <TrendName>{item.params.modelArr.value}</TrendName>
+              <TrendsPrice>{item.cost}</TrendsPrice>
+            </Row>
+          </Column>
         </Column>
-      </Column>
-    </Wrapper>
+      </Wrapper>
+    </StyledLink>
+
   )
 }
 

@@ -81,7 +81,7 @@ const ProductPanelCard: React.FC<Props> = ({product}) => {
             {product.cost}
           </ProductPriceSpan>
         </ProductPrice>
-        <ProductName to={`/products/${product.articul}`}>
+        <ProductName to={`/product/${product.articul}`}>
             {product.params.brandArr.value}
             <br />
             {product.params.modelArr.value}

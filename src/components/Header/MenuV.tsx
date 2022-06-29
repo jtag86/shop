@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import MenuIcon from '@mui/icons-material/Menu'
 import { device } from '../../styles/device'
 import { NavLink } from 'react-router-dom'
-import { CATALOG } from '../../utils/consts'
+import { BONUS, CATALOG, CREDIT, DELIVERY, PAYMENT, WARRANTY } from '../../utils/consts'
 
 const CatMenuContainer = styled.div`
   @media ${device.desktop} {
@@ -70,6 +70,7 @@ const StyledNavLink = styled(NavLink)`
   line-height: 50px;
   font-size: 14px;
   text-transform: uppercase;
+  text-decoration: none;
 `
 
 interface Props {
@@ -84,20 +85,11 @@ const MenuV:React.FC<Props> = ({show, handleClickMenu}) => {
         <MenuIcon  style={{ color: "#FFF"}} />
       </CatMenuContainer>
       <CatMenuUl show={show}>
-          <CatMenuLi><StyledNavLink to={`/catalog/Материнские платы`}>Материнские платы</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Процессоры`}>Процессоры</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Оперативная память`}>Оперативная память</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Видеокарты`}>Видеокарты</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Жесткие диски`}>HDD</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/SSD диски`}>SSD</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Блоки питания`}>Блоки питания</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Корпуса`}>Корпуса</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Смартфоны`}>Смартфоны</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Телефоны`}>Телефоны</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Электронные книги`}>Электронные книги</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Чехлы для телефона`}>Чехлы для телефонов</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Моноподы`}>Моноподы</StyledNavLink></CatMenuLi>
-          <CatMenuLi><StyledNavLink to={`/catalog/Зарядные устройства`}>Зарядные устройства</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={DELIVERY}>Доставка</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={PAYMENT}>Оплата</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={WARRANTY}>Гарантия надежности</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={CREDIT}>Кредитование</StyledNavLink></CatMenuLi>
+          <CatMenuLi><StyledNavLink to={BONUS}>Бонусная система</StyledNavLink></CatMenuLi>
       </CatMenuUl>
     </>
   )

@@ -3,6 +3,7 @@ import { Container } from '../../styles/global'
 import { FaFacebookF, FaInstagram, FaRedditAlien, FaTelegram, FaYoutube } from 'react-icons/fa'
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
+import { BONUS, COMMENTS, CREDIT, DELIVERY, LEGAL, PAYMENT, PERSONALDATE, WARRANTY } from '../../utils/consts'
 
 const FooterMarketName = styled.h1`
   font-size: 36px;
@@ -53,7 +54,9 @@ const FooterContact = styled.p`
   text-shadow: rgb(0 0 0 / 1%) 0 0 1px;
 `
 
-const FooterSocial = styled.div`
+const FooterSocial = styled.a`
+  margin-left: 20px;
+  margin-right: 20px;
   width: 30px;
   height: 30px;
   background: #fafafa;
@@ -80,6 +83,14 @@ const Row = styled.div`
   flex-wrap: wrap;
 `
 
+const SocialRow = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+  flex-wrap: wrap;
+`
+
 const ColumnWrapper = styled.div`
   margin: 10px;
 `
@@ -96,51 +107,42 @@ const Footer = () => {
             <FooterSubtitle3>+38 068 005 3570</FooterSubtitle3>
             <FooterContact>17 Princess Road, London</FooterContact>
             <FooterContact>Grester London NW18JR, UK</FooterContact>
-            <Row>
-              <FooterSocial>
-                <FaInstagram  fontSize={15}/>
-              </FooterSocial>
-              <FooterSocial>
-                <FaYoutube fontSize={15}/>
-              </FooterSocial>
-              <FooterSocial>
-                <FaTelegram fontSize={15}/>
-              </FooterSocial>
-              <FooterSocial>
-                <FaFacebookF fontSize={15}/>
-              </FooterSocial>
-              <FooterSocial>
-                <FaRedditAlien fontSize={15}/>
-              </FooterSocial>
-            </Row>
+
           </ColumnWrapper>
 
           <ColumnWrapper>
             <FooterTitle>Интернет-магазин</FooterTitle>
-            <FooterSubtitle to="#">Оплата</FooterSubtitle>
-            <FooterSubtitle to="#">Доставка</FooterSubtitle>
-            <FooterSubtitle to="#">Кредитование</FooterSubtitle>
-            <FooterSubtitle to="#">Акции</FooterSubtitle>
-            <FooterSubtitle to="#">Отзывы</FooterSubtitle>
-            <FooterSubtitle to="#">Полезные рассылки</FooterSubtitle>
-            <FooterSubtitle to="#">Подарочные сертификаты</FooterSubtitle>
-            <FooterSubtitle to="#">Гарантийное обслуживание</FooterSubtitle>
-            <FooterSubtitle to="#">Юридическим лицам</FooterSubtitle>
+            <FooterSubtitle to={DELIVERY}>Доставка</FooterSubtitle>
+            <FooterSubtitle to={PAYMENT}>Оплата</FooterSubtitle>
+            <FooterSubtitle to={WARRANTY}>Гарантийное обслуживание</FooterSubtitle>
+            <FooterSubtitle to={CREDIT}>Кредитование</FooterSubtitle>
           </ColumnWrapper>
 
           <ColumnWrapper>
             <FooterTitle>Помощь</FooterTitle>
-            <FooterSubtitle to="#">Как заказать</FooterSubtitle>
-            <FooterSubtitle to="#">Бонусная система</FooterSubtitle>
-            <FooterSubtitle to="#">Что такое Шопики</FooterSubtitle>
-            <FooterSubtitle to="#">Статусы заказов</FooterSubtitle>
-            <FooterSubtitle to="#">Вопросы и ответы</FooterSubtitle>
-            <FooterSubtitle to="#">Форум</FooterSubtitle>
-            <FooterSubtitle to="#">Конфигуратор компьютера</FooterSubtitle>
-            <FooterSubtitle to="#">Помощь в выборе смартфона</FooterSubtitle>
-            <FooterSubtitle to="#">Калькулятор блока питания</FooterSubtitle>
+            <FooterSubtitle to={BONUS}>Бонусная система</FooterSubtitle>
+            <FooterSubtitle to={PERSONALDATE}>Персональные данные</FooterSubtitle>
+            <FooterSubtitle to={LEGAL}>Юридическим лицам</FooterSubtitle>
+            <FooterSubtitle to={COMMENTS}>Отзывы</FooterSubtitle>
           </ColumnWrapper>
         </Row>
+        <SocialRow>
+          <FooterSocial  target="_blank" href="https://www.instagram.com/">
+            <FaInstagram  fontSize={15}/>
+          </FooterSocial>
+          <FooterSocial target="_blank" href="https://www.youtube.com/">
+            <FaYoutube fontSize={15}/>
+          </FooterSocial>
+          <FooterSocial target="_blank" href="https://web.telegram.org/">
+            <FaTelegram fontSize={15}/>
+          </FooterSocial>
+          <FooterSocial target="_blank" href="https://www.facebook.com/">
+            <FaFacebookF fontSize={15}/>
+          </FooterSocial>
+          <FooterSocial target="_blank" href="https://www.reddit.com/">
+            <FaRedditAlien fontSize={15}/>
+          </FooterSocial>
+        </SocialRow>
       </Wrapper>
     </Container>
   )

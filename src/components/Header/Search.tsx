@@ -30,6 +30,19 @@ const InputWrapper = styled.div`
   border-radius: 5px;
 `
 
+const SearchRow = styled.div`
+  background-color: #fff;
+  z-index: 101;
+  height: 30px;
+  padding: 20px;
+  :hover {
+    background-color: #ccc;
+  }
+  display: flex;
+  align-items: center;
+  width: 100%;
+`
+
 const Input = styled.input`
   border: none;
   height: 48px;
@@ -61,12 +74,24 @@ const SearchButton = styled.div`
   align-items: center;
 `
 
-const Search = () => {
-  const selector = useAppSelector(state => state.products.products)
-  const [query, setQuery] = useState<string>("")
+const StyledLink = styled(NavLink)`
+  text-decoration: none;
+  color: #444;
+  font-weight: bold;
+`
 
+
+
+const Search = () => {
+  const products = useAppSelector(state => state.products.products)
+  const [query, setQuery] = useState<string>("")
+  
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value)
+  }
+
+  const handleClick = () => {
+    setQuery("")
   }
 
   return <Wrapper>
@@ -86,21 +111,18 @@ const Search = () => {
 
     <List>
       {
-        selector.filter(product => {
+        products.filter(product => {
           if (query === "") {
             return null
-          } else if (product.brandArr.value.toLowerCase().includes(query.toLowerCase())) {
-            console.log("product: ",product)
+          } else if (product.params.brandArr.value.toLowerCase().includes(query.toLowerCase())) {
             return product
           }
         }).slice(0, 5).map(product => (
-          <ListItemButton key={v4()}>
-            <ListItemText primary={
-              <NavLink style={{ textDecoration: 'none', color: '#444', fontWeight: 'bold'}} to={`/products/${product.articul}`} >
-                {product.brandArr.value + " " + product.modelArr.value}
-              </NavLink>
-            } />
-          </ListItemButton>
+            <SearchRow key={product.articul}>
+              <StyledLink to={`/product/${product.articul}`} onClick={handleClick}>
+                {product.params.brandArr.value + " " + product.params.modelArr.value}
+              </StyledLink>
+            </SearchRow>
         ))
       }
     </List>

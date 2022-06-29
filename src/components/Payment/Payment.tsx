@@ -1,24 +1,28 @@
-import { Typography } from '@mui/material'
-import { Box, Button } from '@mui/material'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import Divider from '@mui/material/Divider';
-import Header from '../Header/Header';
-import { MAIN } from '../../utils/consts';
+import { Container, Heading } from '../../styles/global';
+import styled from 'styled-components/macro';
+
+const Title = styled.h4`
+  font-size: 20px;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 10px;
+`
+
+const Wrapper = styled.section`
+  margin-top: 50px;
+  margin-bottom: 50px;
+`
 
 const Payment = () => {
   return (
-    <Box>
-      <Header />
-      <NavLink style={{ textDecoration: 'none' }} to={MAIN}>
-        <Box ml={10} sx={{fontSize: '24px'}}>
-          <Button>На главную</Button>
-        </Box>
-      </NavLink>
-      <Box  p={3}>
-        <Typography variant="h4">Способы оплаты</Typography>
+    <Container>
+      <Wrapper>
+        <Heading>Способы оплаты</Heading>
         <Divider />
-        <Typography variant="h5">Оплата онлайн</Typography>
+        <Title>Оплата онлайн</Title>
         <ul>
           <li style={{padding: '10px'}}>
             Оплата банковской картой онлайн
@@ -33,7 +37,7 @@ const Payment = () => {
 
         <Divider />
 
-        <Typography variant="h5">Оплата при получении</Typography>
+        <Title>Оплата при получении</Title>
         <ul>
           <li style={{padding: '10px'}}>
             Оплата банковской картой или QR в пунктах самовывоза
@@ -56,21 +60,20 @@ const Payment = () => {
         </ul>
         <Divider />
 
-        <Typography variant="h5">Безналичный расчет для юридических лиц</Typography>
+        <Title>Безналичный расчет для юридических лиц</Title>
         <ul>
           <li style={{padding: '10px'}}>
             Безналичный расчет
           </li>
         </ul>
-        <Typography variant="h5">Оплата подарочной картой</Typography>
+        <Title>Оплата подарочной картой</Title>
         <ul>
           <li style={{padding: '10px'}}>
             Оплата подарочной картой
           </li>
         </ul>
-
-      </Box>
-    </Box>
+      </Wrapper>
+    </Container>
   )
 }
 

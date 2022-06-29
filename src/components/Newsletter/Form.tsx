@@ -127,7 +127,7 @@ const Form = () => {
           <NewsletterUnsubscribeLink onClick={e => handleClick2(e)} >отписаться</NewsletterUnsubscribeLink>
         </NewsletterUnsubscribe>
       </Row>
-	  <Snackbar
+	    <Snackbar
         open={openSubscribe}
         autoHideDuration={2000}
 		    onClose={handleClose}

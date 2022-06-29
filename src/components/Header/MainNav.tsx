@@ -11,6 +11,7 @@ const Bg = styled.div`
   border-top: solid 1px #f2f2f2;
   box-shadow: 0px 5px 20px rgb(0 0 0 / 10%);
   background: #FFFFFF;
+  z-index: 2;
   @media ${device.tablet} {
     margin-top: 0px;
   }

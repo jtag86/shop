@@ -8,7 +8,7 @@ import { MdArrowBackIosNew } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
 
 import image1 from '../../assets/img/popular_categories/popular_1.png'
-import image2 from '../../assets/img/popular_categories/popular_2.png'
+import image2 from '../../assets/img/ssd.png'
 import image3 from '../../assets/img/popular_categories/popular_3.png'
 import image4 from '../../assets/img/popular_categories/popular_4.png'
 import image5 from '../../assets/img/popular_categories/popular_5.png'
@@ -81,10 +81,10 @@ const PopularCategories = () => {
           )}
           renderBottomCenterControls ={null}
         >
-          <Card image={image1} title="Смартфоны" value={1} />
-          <Card image={image2} title="Мониторы" value={0}/>
-          <Card image={image3} title="Видеокарты" value={1}/>
-          <Card image={image4} title="HDD" value={0}/>
+          <Card image={image1} title="Смартфоны" value={1} link="Смартфоны"/>
+          <Card image={image2} title="SSD" value={0}  link="SSD диски"/>
+          <Card image={image3} title="Видеокарты" value={1} link="Видеокарты"/>
+          <Card image={image4} title="HDD" value={0} link="Жесткие диски"/>
         </Carousel> 
       </Wrapper>
     </Container>

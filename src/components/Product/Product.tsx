@@ -84,7 +84,6 @@ const ProductText = styled.p`
 
 const Product = () => {
   const {articul} = useParams()
-  const dispatch: Dispatch<any> = useDispatch()
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -95,7 +94,6 @@ const Product = () => {
 	let params = ''
 	if(product) {
 		for( let key in product.params) {
-			console.log(product.params[key])
 			const str = product.params[key].name + ": " + product.params[key].value + " / "
 			params+=str
 		}

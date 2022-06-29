@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { IProducts } from '../../redux/reducers/productsReducer'
 import { device } from '../../styles/device'
@@ -63,12 +64,13 @@ const StyledCost = styled.p`
   margin-top: 33px;
 
 `
-const StyledName = styled.p`
+const StyledName = styled(NavLink)`
   padding-top: 10px;
   padding-left: 50px;
   font-size: 24px;
   font-weight: 400;
   color: #000000;
+  text-decoration: none;
 `
 
 const StyledDiscount = styled.p`
@@ -145,7 +147,7 @@ const CarouselCard: React.FC<Props> = ({product}) => {
         <StyledCost>{product.cost}</StyledCost>
       </Flex>
       <Flex>
-        <StyledName>{product.params.brandArr.value + " " + product.params.modelArr.value}</StyledName>
+        <StyledName to={`/product/${product.articul}`} >{product.params.brandArr.value + " " + product.params.modelArr.value}</StyledName>
         <StyledDiscount>{parseInt(product.cost) + 10000}</StyledDiscount>
       </Flex>
       <WrapperAvailable>

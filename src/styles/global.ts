@@ -44,13 +44,32 @@ export const MainHeading = styled.h1`
   text-align: center;
 `
 
+export const Heading = styled.h4`
+  font-weight: 500;
+  font-size: clamp(1rem, 4vw, 2rem);
+  margin-bottom: 2rem;
+  color: '#403ae3';
+  width: 100%;
+  letter-spacing: 4px;
+  text-align: center;
+`
+
 export const Title = styled.p<{margin?: number, inverse?: boolean, width?: number}>`
-  font-size: clamp(0.5rem, 2vw, 1.2rem);
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
   margin: ${({margin}) => (margin?margin: '')};
   color: ${({inverse}) => (inverse ? '#403ae3' : "fff")};
   line-height: 1.06;
   text-align: center;
   width: ${({width}) => (width ? width : '100%')};
+  margin-top: 20px;
+  margin-bottom: 20px;
+`
+export const Text = styled.p`
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `
 
 export const Row = styled.div<{justifyContent?: string}>`

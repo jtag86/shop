@@ -3,12 +3,13 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { device } from '../../styles/device'
 
-const Wrapper = styled.div<{value: number}>`
+const WrapperLink = styled(NavLink)<{value: number}>`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: ${props => props.value ? "#FFF" : "#eff6fa"};
+  text-decoration: none;
 
   @media ${device.tablet} {
     flex-basis: 30%;
@@ -35,7 +36,7 @@ const Image = styled.img`
   max-height: 100%;
 `
 
-const Text = styled.p`
+const Name = styled.p`
   font-family: 'Rubik', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -50,15 +51,16 @@ const Text = styled.p`
 interface Props {
   image: string,
   title: string,
-  value: number
+  value: number,
+  link: string,
 }
 
-const Card:React.FC<Props> = ({image, title, value}) => {
+const Card:React.FC<Props> = ({image, title, value, link}) => {
   return (
-    <Wrapper value={value}>
+    <WrapperLink to={`/catalog/${link}`} value={value}>
       <ImageWrapper ><Image src={image} /></ImageWrapper>
-      <Text>{title}</Text>
-    </Wrapper>
+      <Name >{title}</Name>
+    </WrapperLink>
   )
 }
 

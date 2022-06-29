@@ -5,6 +5,8 @@ import bannerProduct from '../../assets/img/banner_product.png'
 import { NavLink } from 'react-router-dom'
 import { device } from '../../styles/device'
 import { Container } from '../../styles/global'
+import { useAppSelector } from '../../hooks/hook'
+import { catalogSelector } from '../../redux/selectors/selectors'
 
 const WrapperBg = styled.div`
   width: 100%;
@@ -12,7 +14,7 @@ const WrapperBg = styled.div`
   overflow: hidden;
   display: block;
   position: relative;
-  z-index: -1;
+  z-index: 1;
   @media ${device.mobileL} {
     height: 300px;
   }
@@ -110,7 +112,7 @@ const BannerButton = styled.div`
     margin-left: 20px;
   }
 `
-const Button = styled(NavLink)`
+const StyledLink = styled(NavLink)`
   display: block;
   font-size: 18px;
   font-weight: 400;
@@ -121,7 +123,9 @@ const Button = styled(NavLink)`
   text-decoration: none;
 `
 const Banner = () => {
-  return (
+  const products = useAppSelector(state => catalogSelector(state, "Смартфоны"))
+
+  return products.length?
     <WrapperBg>
       <Bg>
         <Container>
@@ -138,9 +142,9 @@ const Banner = () => {
                 </BannerDiscount>
 
                 <BannerButton >
-                  <Button to="#">
+                  <StyledLink to={`/product/${products[0].articul}`}>
                     Купить
-                  </Button>
+                  </StyledLink>
                 </BannerButton>
               </BannerContent>
               <WrapperImage>
@@ -150,7 +154,7 @@ const Banner = () => {
         </Container>
       </Bg>
     </WrapperBg>
-  )
+    : null
 }
 
 export default Banner

@@ -176,18 +176,21 @@ const BannerMB = () => {
             titleSpan={bannerProducts[0].params.modelArr.value}
             subtitle={paramsMB1}
             image={MBImage1}
+            articul={bannerProducts[0].articul}
           />
           <Card 
             title={bannerProducts[1].params.brandArr.value } 
             titleSpan={bannerProducts[1].params.modelArr.value} 
             subtitle={paramsMB2} 
             image={MBImage2}
+            articul={bannerProducts[1].articul}
           />
           <Card 
             title={bannerProducts[2].params.brandArr.value } 
             titleSpan={bannerProducts[2].params.modelArr.value} 
             subtitle={paramsMB3} 
             image={MBImage3}
+            articul={bannerProducts[3].articul}
           />
         </Carousel>
       </WrapperCarousel>

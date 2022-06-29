@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { device } from '../../styles/device'
+import { BONUS, CREDIT, DELIVERY, PAYMENT, WARRANTY } from '../../utils/consts'
 
 const MainNavUl = styled.ul`
   list-style: none;
@@ -31,11 +32,11 @@ const MainNavLink = styled(NavLink)`
 const MainNavMenu = () => {
   return (
     <MainNavUl>
-      <MainNavLi><MainNavLink to="#">Доставка</MainNavLink></MainNavLi>
-      <MainNavLi><MainNavLink to="#">Оплата</MainNavLink></MainNavLi>
-      <MainNavLi><MainNavLink to="#">Гарантия надежности</MainNavLink></MainNavLi>
-      <MainNavLi><MainNavLink to="#">Кредитование</MainNavLink></MainNavLi>
-      <MainNavLi><MainNavLink to="#">Бонусная система</MainNavLink></MainNavLi>
+      <MainNavLi><MainNavLink to={DELIVERY}>Доставка</MainNavLink></MainNavLi>
+      <MainNavLi><MainNavLink to={PAYMENT}>Оплата</MainNavLink></MainNavLi>
+      <MainNavLi><MainNavLink to={WARRANTY}>Гарантия надежности</MainNavLink></MainNavLi>
+      <MainNavLi><MainNavLink to={CREDIT}>Кредитование</MainNavLink></MainNavLi>
+      <MainNavLi><MainNavLink to={BONUS}>Бонусная система</MainNavLink></MainNavLi>
     </MainNavUl>
   )
 }

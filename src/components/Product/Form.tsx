@@ -165,8 +165,7 @@ const Form: React.FC<Props> = ({product}) => {
 	}
 	
 	const handleQuantityDec = () => {
-		const value = quantity - 1
-		setQuantity(value)
+		if(quantity > 0) setQuantity(quantity-1)
 	}
 
 	const handleClickFav = () => {

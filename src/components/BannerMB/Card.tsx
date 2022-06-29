@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { device } from '../../styles/device'
 import { Container } from '../../styles/global'
@@ -49,7 +50,7 @@ const Subtitle = styled.p`
   }
 `
 
-const Button = styled.a`
+const Button = styled(NavLink)`
   margin-top: 30px;
   background: #0e8ce4;
   border-radius: 5px;
@@ -84,10 +85,11 @@ type Props = {
   title: string,
   titleSpan: string,
   subtitle: string,
-  image: string
+  image: string,
+  articul: string,
 }
 
-const Card: React.FC<Props> = ({title, titleSpan, subtitle, image}) => {
+const Card: React.FC<Props> = ({title, titleSpan, subtitle, image, articul}) => {
   return (
     <Container>
       <Wrapper>
@@ -95,7 +97,7 @@ const Card: React.FC<Props> = ({title, titleSpan, subtitle, image}) => {
           <FlexLeft>
             <Title>{title}<br/> <TitleSpan>{titleSpan}</TitleSpan> </Title>
             <Subtitle>{subtitle}</Subtitle>
-            <Button href='#'>Купить</Button>
+            <Button to={`/product/${articul}`}>Купить</Button>
           </FlexLeft>
           <FlexRight>
             <ImageWrapper>

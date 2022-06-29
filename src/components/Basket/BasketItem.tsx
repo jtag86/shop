@@ -36,6 +36,7 @@ const Row = styled.div`
 
 const IconWrapper = styled.div`
   margin: 20px;
+  cursor: pointer;
   @media ${device.mobileL} {
     position: absolute;
     top: 0;
