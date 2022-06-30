@@ -1,17 +1,9 @@
 import React from 'react'
-import Table from '@mui/material/Table';
-import { Container, Heading } from '../../styles/global';
-import styled from 'styled-components/macro';
-import { comments } from '../../assets/data/comments';
-import Item from './Item';
-
-const Title = styled.h4`
-  font-size: 20px;
-  text-align: center;
-  font-weight: 400;
-  margin-top: 20px;
-  margin-bottom: 10px;
-`
+import { Container, Heading } from '../../styles/global'
+import styled from 'styled-components/macro'
+import { comments } from '../../assets/data/comments'
+import Item from './Item'
+import { v4 } from 'uuid'
 
 const Wrapper = styled.section`
   margin-top: 50px;
@@ -34,11 +26,10 @@ const Comments = () => {
           <CommentsContent>
             {
               comments.map(item => (
-                <Item item={item} />
+                <Item key={v4()} item={item} />
               ))
             }
           </CommentsContent>
-
       </Wrapper>
     </Container>
   )

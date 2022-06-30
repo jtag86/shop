@@ -90,17 +90,16 @@ const TopBar = () => {
 
             <RowCenter>
               <RowCenter>
-                <StyledPermIdentityIcon />
                 {
                   auth
-                  ?<Title>Name</Title>
-                  :(
+                  ?null
+                  :(<>
                     <StyledLink to={REGISTRATION}>Регистрация</StyledLink>
+                    <VerticalLine />
+                  </>
                   )
                 }
-                
               </RowCenter>
-              <VerticalLine />
               {
                 auth
                 ?<Title onClick={handleSignOut}>Выйти</Title>
